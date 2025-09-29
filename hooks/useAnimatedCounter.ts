@@ -1,0 +1,43 @@
+
+import React, { useState, useEffect, useRef } from 'react';
+
+export const useAnimatedCounter = (targetValue: number, duration: number = 2000): [React.RefObject<HTMLSpanElement>, number] => {
+    const [count, setCount] = useState(0);
+    const ref = useRef<HTMLSpanElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    let start = 0;
+                    const end = targetValue;
+                    if (start === end) return;
+
+                    const incrementTime = (duration / end);
+                    const timer = setInterval(() => {
+                        start += 1;
+                        setCount(start);
+                        if (start === end) {
+                            clearInterval(timer);
+                        }
+                    }, incrementTime);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.5 }
+        );
+
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+
+        return () => {
+            if (ref.current) {
+                // eslint-disable-next-line react-hooks/exhaustive-deps
+                observer.unobserve(ref.current);
+            }
+        };
+    }, [targetValue, duration, ref]);
+
+    return [ref, count];
+};
