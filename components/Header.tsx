@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useTheme } from '../App';
 import { useAuth } from '../contexts/AuthContext';
@@ -54,7 +54,16 @@ const Header: React.FC = () => {
     const { theme, toggleTheme } = useTheme();
     const { user, logout } = useAuth();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 10);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const handleLogout = () => {
         logout();
@@ -63,7 +72,7 @@ const Header: React.FC = () => {
     };
     
     return (
-        <header className="sticky top-0 z-40 w-full backdrop-blur-sm bg-light-bg/80 dark:bg-dark-bg/80 border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <header className={`sticky top-0 z-40 w-full backdrop-blur-sm transition-all duration-300 ${isScrolled ? 'shadow-lg bg-light-bg/95 dark:bg-dark-bg/95 border-b border-gray-200 dark:border-gray-800' : 'bg-light-bg/80 dark:bg-dark-bg/80 border-b border-transparent'}`}>
             <div className="container mx-auto px-6 py-4 flex justify-between items-center">
                 <Link to="/" className="text-3xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-brand-purple to-brand-teal">
                     Voon

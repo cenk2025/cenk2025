@@ -12,6 +12,16 @@ export const CampaignIcon = () => (
 export const MarketingIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
 );
+export const AIAgentIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5.5 14h13"/><path d="M5.5 18h13"/><path d="M12 2a2.5 2.5 0 0 1 2.5 2.5c0 1.66-1.34 3-3 3h-1a3 3 0 0 0-3 3v1.5a2.5 2.5 0 0 1-2.5 2.5h-1a2.5 2.5 0 0 1 0-5h1a2.5 2.5 0 0 1 2.5-2.5V5c0-1.55.93-2.83 2.19-3.32A2.5 2.5 0 0 1 12 2Z"/><path d="M12 2a2.5 2.5 0 0 0-2.5 2.5c0 1.66 1.34 3 3 3h1a3 3 0 0 1 3 3v1.5a2.5 2.5 0 0 0 2.5 2.5h1a2.5 2.5 0 0 0 0-5h-1a2.5 2.5 0 0 0-2.5-2.5V5c0-1.55-.93-2.83-2.19-3.32A2.5 2.5 0 0 0 12 2Z"/></svg>
+);
+export const GenerativeMediaIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="m19 9-2 2-2-2-3 3-2-2-3 3"/><path d="M3 15h4"/><path d="M11.5 3.5c-1 .5-2 1.5-2.5 2.5"/><path d="M15 3.5c-1 .5-2 1.5-2.5 2.5"/><path d="M20 9c.5-.5 1-1.5 1.5-2.5"/></svg>
+);
+export const ContentAutomationIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-1.5"/><path d="M12 9V7.5"/><path d="m14.24 11.76-.35-.35"/><path d="M9.8 14.5l-.35-.35"/><path d="m14.6 14.2-.35.35"/><path d="m9.45 9.8.35-.35"/><circle cx="12" cy="12" r="6"/></svg>
+);
+
 
 // Data
 export const SERVICES_DATA: Service[] = [
@@ -31,6 +41,24 @@ export const SERVICES_DATA: Service[] = [
         icon: <MarketingIcon />,
         title: "Kokonaisvaltaiset Ratkaisut",
         description: "Strategiasta toteutukseen ja analytiikkaan – tarjoamme kaikki markkinoinnin palvelut yhden katon alta.",
+        caseStudyLink: "#"
+    },
+    {
+        icon: <AIAgentIcon />,
+        title: "Tekoälyagentit yrityskäyttöön",
+        description: "Räätälöidyt AI-ratkaisut markkinointiin, asiakaspalveluun ja analytiikkaan. Automatisoi rutiinit ja vapauta aikaa luovaan työhön.",
+        caseStudyLink: "#"
+    },
+    {
+        icon: <GenerativeMediaIcon />,
+        title: "Generatiiviset mediatyökalut",
+        description: "Tuota korkealaatuista kuvaa, videota, ääntä ja tekstiä tekoälyn avulla. Nopeuta sisällöntuotantoa ja erotu kilpailijoista.",
+        caseStudyLink: "#"
+    },
+    {
+        icon: <ContentAutomationIcon />,
+        title: "Sisällöntuotannon automaatio",
+        description: "Automatisoi sisällöntuotanto ja julkaisu eri kanaviin. Säästä aikaa ja resursseja tekoälyn avulla.",
         caseStudyLink: "#"
     }
 ];
