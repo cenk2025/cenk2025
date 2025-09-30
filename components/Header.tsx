@@ -1,6 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { useTheme } from '../App.tsx';
+import { useTheme } from '../contexts/ThemeContext.tsx';
 import { useAuth } from '../contexts/AuthContext.tsx';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SERVICES_DATA } from '../constants.tsx';

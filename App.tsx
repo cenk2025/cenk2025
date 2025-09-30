@@ -1,6 +1,7 @@
 
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+
+import React from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header.tsx';
 import Footer from './components/Footer.tsx';
@@ -18,50 +19,7 @@ import CookieConsentBanner from './components/CookieConsentBanner.tsx';
 import { AuthProvider } from './contexts/AuthContext.tsx';
 import ProtectedRoute from './components/ProtectedRoute.tsx';
 import BlogDetailPage from './pages/BlogDetailPage.tsx';
-
-
-// --- Theme Provider Logic ---
-interface ThemeContextType {
-    theme: string;
-    toggleTheme: () => void;
-}
-
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
-
-export const useTheme = () => {
-    const context = useContext(ThemeContext);
-    if (!context) {
-        throw new Error('useTheme must be used within a ThemeProvider');
-    }
-    return context;
-};
-
-// Fix: Refactored ThemeProvider to use React.FC for more explicit and robust typing to resolve the 'missing children' error.
-const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [theme, setTheme] = useState(() => {
-        const savedTheme = localStorage.getItem('theme');
-        const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        return savedTheme || (userPrefersDark ? 'dark' : 'light');
-    });
-
-    useEffect(() => {
-        const root = window.document.documentElement;
-        root.classList.remove('light', 'dark');
-        root.classList.add(theme);
-        localStorage.setItem('theme', theme);
-    }, [theme]);
-
-    const toggleTheme = () => {
-        setTheme(prevTheme => (prevTheme === 'dark' ? 'light' : 'dark'));
-    };
-
-    return (
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            {children}
-        </ThemeContext.Provider>
-    );
-};
-// --- End Theme Provider Logic ---
+import { ThemeProvider } from './contexts/ThemeContext.tsx';
 
 
 const ScrollToTop = () => {
