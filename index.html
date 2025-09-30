@@ -80,11 +80,11 @@
 <script type="importmap">
 {
   "imports": {
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
     "react/": "https://aistudiocdn.com/react@^19.1.1/",
-    "react": "https://aistudiocdn.com/react@^19.1.1",
     "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.3",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0",
     "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.22"
   }
 }
@@ -97,6 +97,10 @@
     <script>
         System.config({
             transpiler: 'plugin-babel',
+            // Add babelOptions to properly handle JSX and React syntax
+            babelOptions: {
+                react: true
+            },
             meta: {
                 // Let babel know to transpile these file extensions
                 '*.ts': { loader: 'plugin-babel' },
@@ -105,9 +109,10 @@
             map: {
                 // Map dependencies to their CDN URLs
                 'react': 'https://aistudiocdn.com/react@^19.1.1',
+                'react-dom': 'https://aistudiocdn.com/react-dom@^19.1.1',
                 'react-dom/client': 'https://aistudiocdn.com/react-dom@^19.1.1/client.js',
                 'react-router-dom': 'https://aistudiocdn.com/react-router-dom@^7.9.3',
-                'framer-motion': 'https://aistudiocdn.com/framer-motion@^11.3.19',
+                'framer-motion': 'https://aistudiocdn.com/framer-motion@^12.23.22',
                 '@google/genai': 'https://aistudiocdn.com/@google/genai@^1.21.0',
 
                 // Babel plugin itself
