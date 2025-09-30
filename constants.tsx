@@ -1,7 +1,7 @@
 
 
 import React from 'react';
-import type { Service, CaseStudy, BlogPost, ProcessStep } from './types';
+import type { Service, CaseStudy, BlogPost, ProcessStep } from './types.ts';
 
 // Icons
 export const SalesAgentIcon = () => (

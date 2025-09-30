@@ -1,15 +1,15 @@
 
 
 import React, { useEffect } from 'react';
-import Hero from '../components/Hero';
-import Services from '../components/Services';
-import ProcessTimeline from '../components/ProcessTimeline';
-import Testimonials from '../components/Testimonials';
-import Portfolio from '../components/Portfolio';
-import VideoDemos from '../components/VideoDemos';
-import BlogTeaser from '../components/BlogTeaser';
-import ContactForm from '../components/ContactForm';
-import SEO from '../components/SEO';
+import Hero from '../components/Hero.tsx';
+import Services from '../components/Services.tsx';
+import ProcessTimeline from '../components/ProcessTimeline.tsx';
+import Testimonials from '../components/Testimonials.tsx';
+import Portfolio from '../components/Portfolio.tsx';
+import VideoDemos from '../components/VideoDemos.tsx';
+import BlogTeaser from '../components/BlogTeaser.tsx';
+import ContactForm from '../components/ContactForm.tsx';
+import SEO from '../components/SEO.tsx';
 
 const HomePage: React.FC = () => {
     useEffect(() => {

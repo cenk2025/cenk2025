@@ -1,9 +1,9 @@
 
 
 import React, { useState, useRef, useEffect } from 'react';
-import { getGeminiResponse } from '../services/geminiService';
-import type { ChatMessage } from '../types';
-import { ChatRole } from '../types';
+import { getGeminiResponse } from '../services/geminiService.ts';
+import type { ChatMessage } from '../types.ts';
+import { ChatRole } from '../types.ts';
 
 // Define the initial state outside the component for reuse
 const initialHistory: ChatMessage[] = [

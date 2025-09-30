@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { useTheme } from '../App';
-import { useAuth } from '../contexts/AuthContext';
+import { useTheme } from '../App.tsx';
+import { useAuth } from '../contexts/AuthContext.tsx';
 import { motion, AnimatePresence } from 'framer-motion';
-import { SERVICES_DATA } from '../constants';
-import type { Service } from '../types';
+import { SERVICES_DATA } from '../constants.tsx';
+import type { Service } from '../types.ts';
 
 const SunIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

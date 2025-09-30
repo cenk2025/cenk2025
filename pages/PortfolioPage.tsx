@@ -1,7 +1,8 @@
 
+
 import React from 'react';
-import Portfolio from '../components/Portfolio';
-import SEO from '../components/SEO';
+import Portfolio from '../components/Portfolio.tsx';
+import SEO from '../components/SEO.tsx';
 
 const PortfolioPage: React.FC = () => {
   return (

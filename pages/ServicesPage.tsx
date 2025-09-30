@@ -1,7 +1,8 @@
 
+
 import React from 'react';
-import Services from '../components/Services';
-import SEO from '../components/SEO';
+import Services from '../components/Services.tsx';
+import SEO from '../components/SEO.tsx';
 
 const ServicesPage: React.FC = () => {
   return (
