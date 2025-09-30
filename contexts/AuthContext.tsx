@@ -5,6 +5,7 @@ interface AuthContextType {
     user: User | null;
     loading: boolean;
     login: (email: string, pass: string) => Promise<void>;
+    register: (email: string, pass: string) => Promise<void>;
     logout: () => void;
 }
 
@@ -54,6 +55,21 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         });
     };
 
+    const register = async (email: string, pass: string) => {
+        // --- This is a mock registration function ---
+        return new Promise<void>((resolve, reject) => {
+            setTimeout(() => {
+                if (email && pass) {
+                    console.log(`Mock registration for: ${email}`);
+                    resolve(); // Always resolve successfully for the demo
+                } else {
+                    reject(new Error('Sähköposti ja salasana vaaditaan.'));
+                }
+            }, 1000);
+        });
+    };
+
+
     const logout = () => {
         setUser(null);
         localStorage.removeItem('user');
@@ -63,6 +79,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         user,
         loading,
         login,
+        register,
         logout,
     };
 

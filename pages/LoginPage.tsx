@@ -32,20 +32,20 @@ const LoginPage: React.FC = () => {
                 title="Kirjaudu sisään | Voon Marketing Agency"
                 description="Kirjaudu sisään Voon-tilillesi päästäksesi hallintapaneeliin."
             />
-            <div className="bg-dark-bg min-h-screen flex items-center justify-center">
+            <div className="bg-light-bg dark:bg-dark-bg min-h-screen flex items-center justify-center">
                 <div className="container mx-auto px-6 py-20">
                     <motion.div 
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="max-w-md mx-auto bg-dark-card p-8 rounded-2xl border border-gray-800 shadow-2xl shadow-brand-purple/20"
+                        className="max-w-md mx-auto bg-light-card dark:bg-dark-card p-8 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-2xl shadow-brand-purple/20"
                     >
                         <h1 className="text-3xl font-black text-center mb-2 bg-clip-text text-transparent bg-gradient-to-r from-brand-purple to-brand-teal">Tervetuloa takaisin</h1>
-                        <p className="text-center text-gray-400 mb-8">Kirjaudu sisään jatkaaksesi.</p>
+                        <p className="text-center text-light-text/80 dark:text-gray-400 mb-8">Kirjaudu sisään jatkaaksesi.</p>
 
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">Sähköposti</label>
+                                <label htmlFor="email" className="block text-sm font-medium text-light-text/80 dark:text-gray-400 mb-2">Sähköposti</label>
                                 <input 
                                     type="email" 
                                     name="email" 
@@ -53,12 +53,12 @@ const LoginPage: React.FC = () => {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required 
-                                    className="w-full bg-dark-bg border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-purple" 
+                                    className="w-full bg-light-bg dark:bg-dark-bg border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-purple" 
                                     placeholder="user@example.com"
                                 />
                             </div>
                             <div>
-                                <label htmlFor="password" className="block text-sm font-medium text-gray-400 mb-2">Salasana</label>
+                                <label htmlFor="password" className="block text-sm font-medium text-light-text/80 dark:text-gray-400 mb-2">Salasana</label>
                                 <input 
                                     type="password" 
                                     name="password" 
@@ -66,7 +66,7 @@ const LoginPage: React.FC = () => {
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     required 
-                                    className="w-full bg-dark-bg border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-purple"
+                                    className="w-full bg-light-bg dark:bg-dark-bg border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-purple"
                                     placeholder="••••••••"
                                 />
                             </div>
@@ -86,6 +86,12 @@ const LoginPage: React.FC = () => {
                                 (Testitunnukset: user@example.com / password123)
                             </p>
                         </form>
+                        <p className="text-sm text-center text-gray-500 mt-6">
+                            Eikö sinulla ole vielä tiliä?{' '}
+                            <Link to="/rekisteroidy" className="font-semibold text-brand-teal hover:underline">
+                                Rekisteröidy
+                            </Link>
+                        </p>
                     </motion.div>
                 </div>
             </div>

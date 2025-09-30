@@ -31,7 +31,7 @@ const BlogDetailPage: React.FC = () => {
                 if (paragraph.trim() === '') {
                     return null;
                 }
-                return <p key={index} className="mb-6 text-lg leading-relaxed text-gray-300">{paragraph}</p>;
+                return <p key={index} className="mb-6 text-lg leading-relaxed text-light-text/90 dark:text-gray-300">{paragraph}</p>;
             })
             .filter(Boolean); // Remove nulls from empty lines
     };
@@ -45,7 +45,7 @@ const BlogDetailPage: React.FC = () => {
                 imageUrl={post.imageUrl}
                 type="article"
             />
-            <div className="bg-dark-bg text-dark-text py-20">
+            <div className="bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text py-20">
                 <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -59,7 +59,7 @@ const BlogDetailPage: React.FC = () => {
                                 <span className={`text-sm font-bold px-3 py-1 rounded-full ${getCategoryColor(post.category)}`}>
                                     {post.category}
                                 </span>
-                                <span className="text-gray-400 text-sm">{post.publishDate}</span>
+                                <span className="text-gray-500 dark:text-gray-400 text-sm">{post.publishDate}</span>
                             </div>
                             <h1 className="text-4xl md:text-6xl font-black leading-tight bg-clip-text text-transparent bg-gradient-to-r from-brand-purple to-brand-coral">
                                 {post.title}
@@ -68,11 +68,11 @@ const BlogDetailPage: React.FC = () => {
 
                         <img src={post.imageUrl} alt={post.title} className="w-full h-auto max-h-[500px] object-cover rounded-2xl mb-12 shadow-lg" />
                         
-                        <article className="prose prose-invert lg:prose-xl max-w-none">
+                        <article className="prose dark:prose-invert lg:prose-xl max-w-none">
                             {renderContent(post.content)}
                         </article>
 
-                        <div className="mt-16 pt-8 border-t border-gray-800">
+                        <div className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
                            <SocialShareButtons url={pageUrl} title={post.title} />
                         </div>
                     </div>

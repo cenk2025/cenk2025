@@ -1,4 +1,5 @@
 
+
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
@@ -9,6 +10,7 @@ import PortfolioPage from './pages/PortfolioPage';
 import BlogPage from './pages/BlogPage';
 import ContactPage from './pages/ContactPage';
 import LoginPage from './pages/LoginPage';
+import RegistrationPage from './pages/RegistrationPage';
 import DashboardPage from './pages/DashboardPage';
 import AIChatWidget from './components/AIChatWidget';
 import { useCookieConsent } from './hooks/useCookieConsent';
@@ -90,6 +92,7 @@ function App() {
                                 <Route path="/blogi/:postId" element={<BlogDetailPage />} />
                                 <Route path="/yhteys" element={<ContactPage />} />
                                 <Route path="/login" element={<LoginPage />} />
+                                <Route path="/rekisteroidy" element={<RegistrationPage />} />
                                 <Route 
                                     path="/dashboard" 
                                     element={

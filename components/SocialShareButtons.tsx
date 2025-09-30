@@ -45,7 +45,7 @@ const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) =
 
     return (
         <div className="flex items-center gap-6">
-            <p className="font-bold text-lg text-gray-300">Jaa tämä artikkeli:</p>
+            <p className="font-bold text-lg text-light-text dark:text-gray-300">Jaa tämä artikkeli:</p>
             <div className="flex items-center gap-4">
                 {shareLinks.map(link => (
                     <a
@@ -54,7 +54,7 @@ const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) =
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`Jaa ${link.name}:ssa`}
-                        className={`p-3 rounded-full bg-gray-800 text-gray-400 transition-colors duration-300 ${link.className}`}
+                        className={`p-3 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 transition-colors duration-300 ${link.className}`}
                     >
                         {link.icon}
                     </a>

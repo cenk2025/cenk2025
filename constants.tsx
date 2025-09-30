@@ -1,98 +1,114 @@
 
+
 import React from 'react';
-import type { Service, Testimonial, CaseStudy, BlogPost, ProcessStep } from './types';
+import type { Service, CaseStudy, BlogPost, ProcessStep } from './types';
 
 // Icons
-export const SocialMediaIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+export const SalesAgentIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 18a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2"/><path d="M12 14a4 4 0 0 0-4 4v2"/><path d="M12 14a4 4 0 0 1 4 4v2"/><path d="M16 14a1 1 0 0 1 1 1v1a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-1c0-.55.45-1 1-1Z"/><path d="M12 2a5 5 0 0 0-5 5v4a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5Z"/></svg>
 );
-export const CampaignIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+export const GenerativeVideoIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m22 8-6 4 6 4V8Z"/><path d="M16 16H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h13v10Z"/><path d="M18 8.471c.423-.243.93-.377 1.469-.377a2.623 2.623 0 0 1 2.623 2.623c0 .538-.134 1.046-.377 1.469"/><path d="m11.23 6.014.25-.433a.5.5 0 0 1 .866 0l.25.433"/><path d="m8.23 11.014.25-.433a.5.5 0 0 1 .866 0l.25.433"/><path d="m6.23 15.014.25-.433a.5.5 0 0 1 .866 0l.25.433"/></svg>
 );
-export const MarketingIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+export const CookielessTrackingIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m8.5 12.5 2 2 4-4"/></svg>
 );
-export const AIAgentIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5.5 14h13"/><path d="M5.5 18h13"/><path d="M12 2a2.5 2.5 0 0 1 2.5 2.5c0 1.66-1.34 3-3 3h-1a3 3 0 0 0-3 3v1.5a2.5 2.5 0 0 1-2.5 2.5h-1a2.5 2.5 0 0 1 0-5h1a2.5 2.5 0 0 1 2.5-2.5V5c0-1.55.93-2.83 2.19-3.32A2.5 2.5 0 0 1 12 2Z"/><path d="M12 2a2.5 2.5 0 0 0-2.5 2.5c0 1.66 1.34 3 3 3h1a3 3 0 0 1 3 3v1.5a2.5 2.5 0 0 0 2.5 2.5h1a2.5 2.5 0 0 0 0-5h-1a2.5 2.5 0 0 0-2.5-2.5V5c0-1.55-.93-2.83-2.19-3.32A2.5 2.5 0 0 0 12 2Z"/></svg>
+export const PersonalizationIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
 );
-export const GenerativeMediaIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="m19 9-2 2-2-2-3 3-2-2-3 3"/><path d="M3 15h4"/><path d="M11.5 3.5c-1 .5-2 1.5-2.5 2.5"/><path d="M15 3.5c-1 .5-2 1.5-2.5 2.5"/><path d="M20 9c.5-.5 1-1.5 1.5-2.5"/></svg>
+export const AutonomousCampaignsIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15.1 2.1a2 2 0 0 1 2.8 2.8l-1.3 1.3L19 9l-4 4-2.4-2.4-1.3 1.3a2 2 0 0 1-2.8-2.8Z"/><path d="M9.4 12.2 2 19.6l1.4 1.4 1.4-1.4 4.2 4.2 1.4-1.4 1.4-1.4-7.4-7.4Z"/><path d="m18 11 1-11-11 1"/></svg>
 );
-export const ContentAutomationIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-1.5"/><path d="M12 9V7.5"/><path d="m14.24 11.76-.35-.35"/><path d="M9.8 14.5l-.35-.35"/><path d="m14.6 14.2-.35.35"/><path d="m9.45 9.8.35-.35"/><circle cx="12" cy="12" r="6"/></svg>
+export const ShoppableVideoIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 6h10"/><path d="m14 6 7.55-4.24a1 1 0 0 1 1.28.83L22 18.2a1 1 0 0 1-1.28.83L14 14"/><path d="M12 12H2l4-10"/><path d="m6 12 1.5-6.5"/><circle cx="8" cy="18" r="2"/><circle cx="16" cy="18" r="2"/><path d="M10 18h4"/></svg>
 );
 
 
 // Data
 export const SERVICES_DATA: Service[] = [
     {
-        icon: <SocialMediaIcon />,
-        title: "Sosiaalinen Media",
-        description: "Luomme koukuttavia sisältöstrategioita ja kampanjoita, jotka sitouttavat yleisösi ja kasvattavat brändisi näkyvyyttä.",
+        icon: <SalesAgentIcon />,
+        title: "Tekoälyagentit myyntiin & tukeen",
+        description: "24/7-chat/voice-agentit, jotka vastaavat liideille sekunneissa, karsivat toistuvat kysymykset ja synkkaavat CRM:ään.",
         caseStudyLink: "#"
     },
     {
-        icon: <CampaignIcon />,
-        title: "Outbound & Inbound Kampanjat",
-        description: "Suunnittelemme ja toteutamme tuloshakuisia kampanjoita, jotka tuottavat laadukkaita liidejä ja vauhdittavat myyntiäsi.",
+        icon: <AutonomousCampaignsIcon />,
+        title: "Autonomiset kampanjat (Outbound/Inbound)",
+        description: "Monikanavainen orkestrointi (sähköposti, LinkedIn, mainosalustat) + budjetin ja viestien automaattinen A/B/bandit-optimointi.",
         caseStudyLink: "#"
     },
     {
-        icon: <MarketingIcon />,
-        title: "Kokonaisvaltaiset Ratkaisut",
-        description: "Strategiasta toteutukseen ja analytiikkaan – tarjoamme kaikki markkinoinnin palvelut yhden katon alta.",
+        icon: <ShoppableVideoIcon />,
+        title: "Shoppable-video & live-commerce",
+        description: "Ostopolku suoraan videosta; interaktiiviset tuotekortit, reaaliaikaiset tarjoukset ja maksut integroituna.",
         caseStudyLink: "#"
     },
     {
-        icon: <AIAgentIcon />,
-        title: "Tekoälyagentit yrityskäyttöön",
-        description: "Räätälöidyt AI-ratkaisut markkinointiin, asiakaspalveluun ja analytiikkaan. Automatisoi rutiinit ja vapauta aikaa luovaan työhön.",
+        icon: <CookielessTrackingIcon />,
+        title: "Evästeetön mittaus & 1st-party data",
+        description: "Server-side tagging, Consent Mode, data clean room ja kevyt MMM – luotettava markkinoinnin mittaus ilman kolmannen osapuolen evästeitä.",
         caseStudyLink: "#"
     },
     {
-        icon: <GenerativeMediaIcon />,
-        title: "Generatiiviset mediatyökalut",
-        description: "Tuota korkealaatuista kuvaa, videota, ääntä ja tekstiä tekoälyn avulla. Nopeuta sisällöntuotantoa ja erotu kilpailijoista.",
+        icon: <PersonalizationIcon />,
+        title: "Reaaliaikainen personointi & suositukset",
+        description: "Verkkosivun, uutiskirjeiden ja viestien sisältö elää käyttäjän intentin mukaan; AI optimoi konversioon.",
         caseStudyLink: "#"
     },
     {
-        icon: <ContentAutomationIcon />,
-        title: "Sisällöntuotannon automaatio",
-        description: "Automatisoi sisällöntuotanto ja julkaisu eri kanaviin. Säästä aikaa ja resursseja tekoälyn avulla.",
+        icon: <GenerativeVideoIcon />,
+        title: "Generatiivinen video & avatar-studio",
+        description: "Tuote- ja selitevideot, monikieliset ääniraidat ja brändiavataret automaatiolla – nopea tuotanto ilman kuvausryhmää.",
         caseStudyLink: "#"
-    }
-];
-
-export const TESTIMONIALS_DATA: Testimonial[] = [
-    {
-        quote: "Voonin tiimi mullisti digitaalisen läsnäolomme. Heidän luovuutensa ja strateginen näkemyksensä ylittivät kaikki odotuksemme.",
-        author: "Anna Lahtinen",
-        role: "Toimitusjohtaja, TechFin Oy",
-        avatarUrl: "https://picsum.photos/100/100?random=1",
-        kpi: {
-            value: 320,
-            label: "Liidien kasvu",
-            suffix: "%",
-        }
-    },
-    {
-        quote: "Yhteistyö Voonin kanssa on ollut saumatonta ja tuloksekasta. Kampanjamme tuottivat ennätysmäärän sitoutumista.",
-        author: "Matti Virtanen",
-        role: "Markkinointipäällikkö, UrbanStyle",
-        avatarUrl: "https://picsum.photos/100/100?random=2",
-        kpi: {
-            value: 50,
-            label: "Konversioprosentin nousu",
-            suffix: "%",
-        }
     }
 ];
 
 export const PORTFOLIO_DATA: CaseStudy[] = [
-    { id: 1, title: "TechFin Brändi-ilmeen Uudistus", category: "Brändäys", imageUrl: "https://picsum.photos/600/400?random=11", excerpt: "Loimme dynaamisen ja modernin brändi-identiteetin.", metrics: [{ label: "Brändin tunnettuus", value: "+80%" }, { label: "Verkkosivujen liikenne", value: "+120%" }] },
-    { id: 2, title: "UrbanStyle Globaali Lanseeraus", category: "Sosiaalinen Media", imageUrl: "https://picsum.photos/600/400?random=12", excerpt: "Orkestroimme viraalin some-kampanjan.", metrics: [{ label: "Sitoutuminen", value: "+300%" }, { label: "Myynti", value: "+150%" }] },
-    { id: 3, title: "EcoFood Vastuullisuuskampanja", category: "Sisältömarkkinointi", imageUrl: "https://picsum.photos/600/400?random=13", excerpt: "Kerroimme tarinan, joka kosketti ja aktivoi.", metrics: [{ label: "Media-arvo", value: "€500k+" }, { label: "PR-maininnat", value: "250+" }] },
-    { id: 4, title: "NextGen SaaS Liidien Generointi", category: "Inbound", imageUrl: "https://picsum.photos/600/400?random=14", excerpt: "Rakensimme tehokkaan inbound-koneiston.", metrics: [{ label: "MQL-liidit", value: "+450%" }, { label: "Asiakashankintakustannus", value: "-30%" }] },
+    { 
+        id: 1, 
+        title: "longeviq.voon.fi", 
+        category: "Terveysteknologia", 
+        imageUrl: "https://picsum.photos/seed/ai-health-viz/600/400", 
+        excerpt: "AI-pohjainen “longevity”-alusta: biologisen iän arvio, rutiinivalmentaja ja personoidut lisäravinnesuositukset.", 
+        metrics: [
+            { label: "Biologinen ikä", value: "-3.5v" }, 
+            { label: "Käyttäjäpysyvyys", value: "+78%" }
+        ] 
+    },
+    { 
+        id: 2, 
+        title: "finnai.voon.fi", 
+        category: "Tekoälypalvelu", 
+        imageUrl: "https://picsum.photos/seed/ai-language-wave/600/400", 
+        excerpt: "Suomea ymmärtävä yritys- ja asiointiapuri, joka vastaa kysymyksiin, tuottaa tekstiä ja automatisoi arkisia prosesseja.", 
+        metrics: [
+            { label: "Vastaustarkkuus", value: "99.2%" }, 
+            { label: "Tukipyyntöjen vähennys", value: "-60%" }
+        ] 
+    },
+    { 
+        id: 3, 
+        title: "foodai.fi", 
+        category: "Ravintola-ala", 
+        imageUrl: "https://picsum.photos/seed/ai-food-data/600/400", 
+        excerpt: "AI-vetoinen pikaruoka-/ravintola-demo: dynaamiset menut, kampanjat ja personoidut suositukset reaaliajassa.", 
+        metrics: [
+            { label: "Konversio", value: "+25%" }, 
+            { label: "Keskiostos", value: "+15%" }
+        ] 
+    },
+    { 
+        id: 4, 
+        title: "vooniq.voon.fi", 
+        category: "HR-Tech", 
+        imageUrl: "https://picsum.photos/seed/ai-career-path/600/400", 
+        excerpt: "Ura- ja työnhaku-alusta: ATS-optimoitu CV-työkalu, työpaikkahaku ja AI-pohjaiset harjoitushaastattelut.", 
+        metrics: [
+            { label: "Haastattelukutsut", value: "+400%" }, 
+            { label: "Hakuprosessin nopeus", value: "2x" }
+        ] 
+    },
 ];
 
 export const BLOG_POSTS_DATA: BlogPost[] = [

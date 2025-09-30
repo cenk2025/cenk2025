@@ -24,7 +24,7 @@ const DashboardPage: React.FC = () => {
                 title="Hallintapaneeli | Voon Marketing Agency"
                 description="Tervetuloa henkilökohtaiseen hallintapaneeliisi."
             />
-            <div className="bg-dark-bg min-h-screen">
+            <div className="bg-light-bg dark:bg-dark-bg min-h-screen">
                 <div className="container mx-auto px-6 py-20">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -33,10 +33,10 @@ const DashboardPage: React.FC = () => {
                         className="max-w-3xl mx-auto text-center"
                     >
                         <h1 className="text-5xl font-black mb-4 bg-clip-text text-transparent bg-gradient-to-r from-brand-purple to-brand-teal">Hallintapaneeli</h1>
-                        <p className="text-xl text-gray-300 mb-8">
+                        <p className="text-xl text-light-text dark:text-gray-300 mb-8">
                             Tervetuloa, <span className="font-bold text-brand-teal">{user.email}</span>!
                         </p>
-                        <p className="text-gray-400 mb-12">Tämä on suojattu alue vain kirjautuneille käyttäjille. Tulevaisuudessa täällä voit hallinnoida kampanjoitasi, tarkastella analytiikkaa ja paljon muuta.</p>
+                        <p className="text-light-text/80 dark:text-gray-400 mb-12">Tämä on suojattu alue vain kirjautuneille käyttäjille. Tulevaisuudessa täällä voit hallinnoida kampanjoitasi, tarkastella analytiikkaa ja paljon muuta.</p>
                         
                         <button
                             onClick={handleLogout}

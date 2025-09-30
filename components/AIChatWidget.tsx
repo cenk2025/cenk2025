@@ -1,15 +1,21 @@
 
+
 import React, { useState, useRef, useEffect } from 'react';
 import { getGeminiResponse } from '../services/geminiService';
 import type { ChatMessage } from '../types';
 import { ChatRole } from '../types';
 
+// Define the initial state outside the component for reuse
+const initialHistory: ChatMessage[] = [
+    { role: ChatRole.MODEL, text: "Hei! Olen Voon Assist. Miten voin auttaa sinua tänään markkinointiin liittyen?" }
+];
+
+
 const AIChatWidget: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [input, setInput] = useState('');
-    const [history, setHistory] = useState<ChatMessage[]>([
-        { role: ChatRole.MODEL, text: "Hei! Olen Voon Assist. Miten voin auttaa sinua tänään markkinointiin liittyen?" }
-    ]);
+    // Use the initial state constant
+    const [history, setHistory] = useState<ChatMessage[]>(initialHistory);
     const [isLoading, setIsLoading] = useState(false);
     const chatEndRef = useRef<HTMLDivElement>(null);
 
@@ -37,6 +43,13 @@ const AIChatWidget: React.FC = () => {
             handleSendMessage();
         }
     };
+
+    // New handler to clear the chat
+    const handleClearChat = () => {
+        setHistory(initialHistory);
+        setInput('');
+        setIsLoading(false);
+    };
     
     return (
         <>
@@ -55,9 +68,20 @@ const AIChatWidget: React.FC = () => {
             </div>
             {isOpen && (
                 <div className="fixed bottom-24 right-6 w-full max-w-sm h-[60vh] bg-dark-card border border-gray-700 rounded-2xl shadow-2xl flex flex-col z-50 animate-fade-in-up">
-                    <div className="p-4 border-b border-gray-700">
-                        <h3 className="font-bold text-lg text-white">Voon Assist</h3>
-                        <p className="text-sm text-gray-400">Tekoälyavustajasi</p>
+                    <div className="p-4 border-b border-gray-700 flex justify-between items-center">
+                        <div>
+                            <h3 className="font-bold text-lg text-white">Voon Assist</h3>
+                            <p className="text-sm text-gray-400">Tekoälyavustajasi</p>
+                        </div>
+                        {history.length > 1 && (
+                             <button
+                                onClick={handleClearChat}
+                                className="text-gray-400 hover:text-white transition-colors"
+                                aria-label="Tyhjennä chat"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                            </button>
+                        )}
                     </div>
                     <div className="flex-grow p-4 overflow-y-auto space-y-4">
                         {history.map((message, index) => (

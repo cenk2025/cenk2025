@@ -52,7 +52,7 @@ const ProcessTimeline: React.FC = () => {
     };
 
     return (
-        <section className="py-20 bg-dark-card">
+        <section className="py-20 bg-light-card dark:bg-dark-card">
             {/* The ref on the outer container triggers the animation for the whole section */}
             <div ref={ref} className="container mx-auto px-6">
                  {/* The main motion container that controls the animation sequence */}
@@ -65,7 +65,7 @@ const ProcessTimeline: React.FC = () => {
                     </h2>
                     <div className="relative">
                         {/* The timeline line container (desktop only) */}
-                        <div className="absolute left-1/2 -translate-x-1/2 h-full w-1 bg-gray-800 hidden md:block">
+                        <div className="absolute left-1/2 -translate-x-1/2 h-full w-1 bg-gray-200 dark:bg-gray-800 hidden md:block">
                             {/* The animated part of the line that "draws" itself */}
                             <motion.div
                                 className="w-full h-full bg-gradient-to-b from-brand-purple to-brand-teal"
@@ -85,16 +85,16 @@ const ProcessTimeline: React.FC = () => {
                                     className={`mb-8 flex justify-between items-center w-full ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
                                 >
                                     <div className="w-full md:w-5/12">
-                                        <div className="p-8 rounded-2xl border border-gray-800 bg-dark-bg transition-all duration-300 hover:border-brand-teal hover:shadow-lg hover:shadow-brand-teal/10">
+                                        <div className="p-8 rounded-2xl border border-gray-200 dark:border-gray-800 bg-light-bg dark:bg-dark-bg transition-all duration-300 hover:border-brand-teal hover:shadow-lg hover:shadow-brand-teal/10">
                                             <h3 className="font-bold text-2xl mb-2 text-brand-teal">{item.title}</h3>
-                                            <p className="text-gray-400">{item.description}</p>
+                                            <p className="text-light-text/80 dark:text-gray-400">{item.description}</p>
                                         </div>
                                     </div>
                                     <div className="z-10 hidden md:flex items-center">
                                         {/* Animate the circle to pop into view */}
                                         <motion.div
                                             variants={circleVariants}
-                                            className="w-8 h-8 rounded-full bg-brand-purple flex items-center justify-center"
+                                            className="w-8 h-8 rounded-full bg-brand-purple flex items-center justify-center text-dark-text"
                                         >
                                             <span className="font-bold">{item.step}</span>
                                         </motion.div>
