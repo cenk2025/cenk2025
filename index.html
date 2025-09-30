@@ -72,15 +72,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-<script type="importmap">
+    <script type="importmap">
 {
   "imports": {
-    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.22.3",
+    "@google/genai": "https://esm.sh/@google/genai@latest",
+    "framer-motion": "https://esm.sh/framer-motion@10.18.0",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
-    "react/": "https://aistudiocdn.com/react@^19.1.1/",
-    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.3",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.21.0",
-    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.22"
+    "react/": "https://aistudiocdn.com/react@^19.1.1/"
   }
 }
 </script>
@@ -88,14 +89,7 @@
 <body class="text-light-text dark:text-dark-text font-sans transition-colors duration-300 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 dark:bg-dark-bg bg-[length:200%_200%] animate-subtle-gradient">
     <div id="root"></div>
 
-    <!-- Load Core Libraries from CDN -->
-    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/react-router@6.22.3/umd/react-router.production.min.js"></script>
-    <script src="https://unpkg.com/react-router-dom@6.22.3/umd/react-router-dom.production.min.js"></script>
-    <script src="https://unpkg.com/framer-motion@10.18.0/dist/framer-motion.umd.min.js"></script>
-
-    <!-- Load the fully compiled application bundle -->
-    <script defer src="./bundle.js"></script>
+    <!-- Load the application as an ES module -->
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>

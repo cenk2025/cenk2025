@@ -4,25 +4,11 @@ import { ChatMessage, ChatRole } from '../types.ts';
 let ai: GoogleGenAI | null = null;
 const model = 'gemini-2.5-flash';
 
-// Function to safely get the API key. This prevents a ReferenceError if 'process' is not defined in the browser.
-const getApiKey = (): string | undefined => {
-    try {
-        // This check ensures we don't crash in a browser environment without a build step.
-        if (typeof process !== 'undefined' && process.env && process.env.API_KEY) {
-            return process.env.API_KEY;
-        }
-        return undefined;
-    } catch (e) {
-        console.warn("Could not read 'process.env.API_KEY'. This is expected in browser environments without a build process.");
-        return undefined;
-    }
-};
-
-
 export const getGeminiResponse = async (history: ChatMessage[], newMessage: string): Promise<string> => {
     try {
         if (!ai) {
-            const API_KEY = getApiKey();
+            // Per guidelines, use process.env.API_KEY directly, assuming it's available in the execution context.
+            const API_KEY = process.env.API_KEY;
             if (!API_KEY) {
                 console.error("CRITICAL: Gemini API key not found. The application will not be able to connect to the AI service. Ensure the API_KEY environment variable is set.");
                 return "API-avainta ei ole määritetty. Ota yhteyttä sivuston ylläpitoon.";
