@@ -1,26 +1,14 @@
+import { GoogleGenAI, GenerateContentResponse } from '@google/genai';
 import { ChatMessage, ChatRole } from '../types';
 
-// Define types for the dynamically imported module
-type GoogleGenAI = any;
-type GenerateContentResponse = any;
-
 let ai: GoogleGenAI | null = null;
-let genaiModule: any = null;
 const model = 'gemini-2.5-flash';
 
-// Helper function to dynamically import and initialize the AI module
-const getAiInstance = async (): Promise<GoogleGenAI> => {
+// Helper function to initialize the AI module
+const getAiInstance = (): GoogleGenAI => {
     if (ai) {
         return ai;
     }
-
-    if (!genaiModule) {
-        // Dynamically import the ESM-only dependency.
-        // The bundler will handle this import statement.
-        genaiModule = await import('https://esm.sh/@google/genai@latest');
-    }
-
-    const { GoogleGenAI } = genaiModule;
 
     const API_KEY = process.env.API_KEY;
     if (!API_KEY) {
@@ -34,7 +22,7 @@ const getAiInstance = async (): Promise<GoogleGenAI> => {
 
 export const getGeminiResponse = async (history: ChatMessage[], newMessage: string): Promise<string> => {
     try {
-        const aiInstance = await getAiInstance();
+        const aiInstance = getAiInstance();
 
         // Use the new chat session creation method
         const chat = aiInstance.chats.create({
