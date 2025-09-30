@@ -1,5 +1,4 @@
-
-
+import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { BLOG_POSTS_DATA } from '../constants';
 import SEO from '../components/SEO';

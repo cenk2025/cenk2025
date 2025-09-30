@@ -1,5 +1,4 @@
-
-
+import React from 'react';
 import BlogTeaser from '../components/BlogTeaser';
 import SEO from '../components/SEO';
 

@@ -1,5 +1,4 @@
-
-
+import React from 'react';
 import ContactForm from '../components/ContactForm';
 import SEO from '../components/SEO';
 

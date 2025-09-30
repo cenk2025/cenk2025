@@ -1,5 +1,4 @@
-
-
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { BLOG_POSTS_DATA } from '../constants';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
@@ -41,16 +40,33 @@ const BlogTeaser: React.FC<BlogTeaserProps> = ({ fullPage = false }) => {
                             <img src={post.imageUrl} alt={post.title} className="w-full h-48 object-cover" />
                             <div className="p-6 flex flex-col flex-grow">
                                 <div className="flex justify-between items-center mb-4">
-                                    <span className={`text-xs font-bold px-3 py-1 rounded-full ${getCategoryColor(post.category)}`}>{post.category}</span>
-                                    <p className="text-sm text-gray-500">{post.publishDate}</p>
+                                    <span className={`text-sm font-bold px-3 py-1 rounded-full self-start ${getCategoryColor(post.category)}`}>
+                                        {post.category}
+                                    </span>
+                                    <span className="text-sm text-gray-500">{post.publishDate}</span>
                                 </div>
-                                <h3 className="text-xl font-bold mb-2 flex-grow">{post.title}</h3>
-                                <p className="text-light-text/80 dark:text-gray-400 mb-4">{post.excerpt}</p>
-                                <Link to={`/blogi/${post.id}`} className="font-bold text-brand-teal hover:underline mt-auto">Lue lisää &rarr;</Link>
+                                <h3 className="text-xl font-bold mb-2 flex-grow">
+                                    <Link to={`/blogi/${post.id}`} className="hover:text-brand-purple transition-colors">
+                                        {post.title}
+                                    </Link>
+                                </h3>
+                                <p className="text-light-text/70 dark:text-gray-400 mb-4">{post.excerpt}</p>
+                                <div className="mt-auto">
+                                    <Link to={`/blogi/${post.id}`} className="font-bold text-brand-teal hover:underline">
+                                        Lue lisää &rarr;
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     ))}
-                 </div>
+                </div>
+                 {!fullPage && (
+                    <div className="text-center mt-16">
+                        <Link to="/blogi" className="inline-block bg-brand-purple text-white font-bold text-lg py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-brand-purple/50">
+                            Kaikki artikkelit
+                        </Link>
+                    </div>
+                 )}
             </div>
         </section>
     );
