@@ -1,82 +1,22 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Voon | Digitaalisen Markkinoinnin Asiantuntijat</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%236f42c1' /><stop offset='100%25' stop-color='%2320c997' /></linearGradient></defs><text x='50' y='85' font-size='100' font-weight='bold' text-anchor='middle' fill='url(%23g)'>V</text></svg>">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voon | Digitaalisen Markkinoinnin Asiantuntijat</title>
 
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Olemme täyden palvelun markkinointitoimisto, joka yhdistää luovuuden, teknologian ja datan saavuttaakseen poikkeuksellisia tuloksia." />
-    <meta name="robots" content="index, follow" />
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://voon.fi/" />
-    <meta property="og:title" content="Voon | Digitaalisen Markkinoinnin Asiantuntijat" />
-    <meta property="og:description" content="Olemme täyden palvelun markkinointitoimisto, joka yhdistää luovuuden, teknologian ja datan saavuttaakseen poikkeuksellisia tuloksia." />
-    <meta property="og:image" content="https://picsum.photos/seed/voon-og-image/1200/630" />
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Voon | Digitaalisen Markkinoinnin Asiantuntijat" />
-    <meta name="twitter:description" content="Olemme täyden palvelun markkinointitoimisto, joka yhdistää luovuuden, teknologian ja datan saavuttaakseen poikkeuksellisia tuloksia." />
-    <meta name="twitter:image" content="https://picsum.photos/seed/voon-og-image/1200/630" />
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        'brand-purple': '#6f42c1',
-                        'brand-teal': '#20c997',
-                        'brand-coral': '#fd7e14',
-                        
-                        'dark-bg': '#121212',
-                        'dark-card': '#1e1e1e',
-                        'dark-text': '#f8f9fa',
-                        
-                        'light-bg': '#f8f9fa',
-                        'light-card': '#ffffff',
-                        'light-text': '#212529',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    animation: {
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                        'background-pan': 'backgroundPan 15s linear infinite',
-                        'pulse-glow': 'pulseGlow 2s infinite ease-in-out',
-                        'subtle-gradient': 'backgroundPan 30s ease infinite',
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        backgroundPan: {
-                            '0%': { backgroundPosition: '0% 50%' },
-                            '50%': { backgroundPosition: '100% 50%' },
-                            '100%': { backgroundPosition: '0% 50%' },
-                        },
-                        pulseGlow: {
-                            '0%, 100%': { boxShadow: '0 0 10px #6f42c1, 0 0 20px #6f42c1' },
-                            '50%': { boxShadow: '0 0 20px #20c997, 0 0 40px #20c997' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-<script type="importmap">
+  <!-- (Önemli) Import Map shim: Safari ve eski Chromium için gerekir -->
+  <script async src="https://unpkg.com/es-module-shims@1.10.0/dist/es-module-shims.js"></script>
+
+  <!-- Tek React zinciri: 18.2.0'a sabitledik -->
+  <script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@18.2.0",
+    "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
     "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
     "react-router-dom": "https://esm.sh/react-router-dom@6.23.1",
     "framer-motion": "https://esm.sh/framer-motion@10.18.0",
@@ -86,9 +26,13 @@
   }
 }
 </script>
+
+  <!-- Diğer meta/OG/Twitter etiketlerin burada kalabilir -->
 </head>
-<body class="text-light-text dark:text-dark-text font-sans transition-colors duration-300 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 dark:bg-dark-bg bg-[length:200%_200%] animate-subtle-gradient">
-    <div id="root"></div>
-    <script type="module" src="./bundle.js"></script>
+<body class="font-sans bg-gray-50 text-gray-900 dark:bg-[#121212] dark:text-gray-50">
+  <div id="root"></div>
+
+  <!-- Application entry point is loaded as a module -->
+  <script type="module" src="./index.tsx"></script>
 </body>
 </html>
