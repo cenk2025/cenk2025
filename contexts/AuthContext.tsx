@@ -19,7 +19,8 @@ export const useAuth = () => {
     return context;
 };
 
-export const AuthProvider = ({ children }: { children: ReactNode }) => {
+// Fix: Refactored AuthProvider to use React.FC for more explicit and robust typing to resolve the 'missing children' error.
+export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
 

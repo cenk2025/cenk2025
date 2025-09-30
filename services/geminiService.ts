@@ -1,24 +1,21 @@
 import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 import { ChatMessage, ChatRole } from '../types';
 
-const API_KEY = process.env.API_KEY;
-
-if (!API_KEY) {
-  console.warn("Gemini API key not found. Please set the API_KEY environment variable.");
-}
-
-// Correct initialization with named parameter
-const ai = new GoogleGenAI({ apiKey: API_KEY! });
-
+// NOTE: ai is initialized lazily to prevent app crash if API_KEY is missing on load.
+let ai: GoogleGenAI | null = null;
 const model = 'gemini-2.5-flash';
 
 export const getGeminiResponse = async (history: ChatMessage[], newMessage: string): Promise<string> => {
-    if (!API_KEY) {
-        console.error("CRITICAL SECURITY WARNING: API_KEY is exposed on the client-side. This is not secure and should be handled by a backend proxy in a production environment.");
-        return "API-avainta ei ole määritetty. Ota yhteyttä sivuston ylläpitoon.";
-    }
-
     try {
+        if (!ai) {
+            const API_KEY = process.env.API_KEY;
+            if (!API_KEY) {
+                console.error("CRITICAL: Gemini API key not found. The application will not be able to connect to the AI service. Ensure the API_KEY environment variable is set.");
+                return "API-avainta ei ole määritetty. Ota yhteyttä sivuston ylläpitoon.";
+            }
+            ai = new GoogleGenAI({ apiKey: API_KEY });
+        }
+
         // Use the new chat session creation method
         const chat = ai.chats.create({
           model,
@@ -40,6 +37,8 @@ export const getGeminiResponse = async (history: ChatMessage[], newMessage: stri
 
     } catch (error) {
         console.error("Error calling Gemini API:", error);
+        // Reset the instance if there's an error, maybe the key was invalid.
+        ai = null; 
         return "Pahoittelut, mutta tekoälyavustajassa on tällä hetkellä tekninen ongelma. Yritä hetken päästä uudelleen.";
     }
 };

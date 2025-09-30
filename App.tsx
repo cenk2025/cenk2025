@@ -36,7 +36,8 @@ export const useTheme = () => {
     return context;
 };
 
-const ThemeProvider = ({ children }: { children: ReactNode }) => {
+// Fix: Refactored ThemeProvider to use React.FC for more explicit and robust typing to resolve the 'missing children' error.
+const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [theme, setTheme] = useState(() => {
         const savedTheme = localStorage.getItem('theme');
         const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
