@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+// FIX: Add missing import for React
+import React from 'react';
 import { useLocation } from 'react-router-dom';
 
 interface SEOProps {
@@ -21,7 +22,7 @@ const SEO: React.FC<SEOProps> = ({
     const location = useLocation();
     const canonicalUrl = `${SITE_URL}/#${location.pathname}`;
 
-    useEffect(() => {
+    React.useEffect(() => {
         document.title = title;
 
         const setMetaTag = (attr: 'name' | 'property', value: string, content: string) => {

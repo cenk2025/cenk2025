@@ -1,6 +1,5 @@
 
 
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { BLOG_POSTS_DATA } from '../constants';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';

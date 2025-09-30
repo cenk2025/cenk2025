@@ -1,10 +1,7 @@
 
 
-// Fix: Import `ReactNode` to provide the correct type for React components, resolving the "Cannot find namespace 'JSX'" error.
-import type { ReactNode } from 'react';
-
 export interface Service {
-    icon: ReactNode;
+    icon: React.ReactNode;
     title: string;
     description: string;
     caseStudyLink: string;

@@ -1,6 +1,5 @@
 
 
-import React from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { Link } from 'react-router-dom';
 

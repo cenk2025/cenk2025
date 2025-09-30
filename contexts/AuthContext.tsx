@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+// FIX: Add missing import for React
+import React from 'react';
 import type { User } from '../types';
 
 interface AuthContextType {
@@ -9,10 +10,10 @@ interface AuthContextType {
     logout: () => void;
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const AuthContext = React.createContext<AuthContextType | undefined>(undefined);
 
 export const useAuth = () => {
-    const context = useContext(AuthContext);
+    const context = React.useContext(AuthContext);
     if (context === undefined) {
         throw new Error('useAuth must be used within an AuthProvider');
     }
@@ -20,11 +21,11 @@ export const useAuth = () => {
 };
 
 // Fix: Refactored AuthProvider to use React.FC for more explicit and robust typing to resolve the 'missing children' error.
-export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [user, setUser] = useState<User | null>(null);
-    const [loading, setLoading] = useState(true);
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const [user, setUser] = React.useState<User | null>(null);
+    const [loading, setLoading] = React.useState(true);
 
-    useEffect(() => {
+    React.useEffect(() => {
         // Check for saved user session on initial load
         try {
             const savedUser = localStorage.getItem('user');

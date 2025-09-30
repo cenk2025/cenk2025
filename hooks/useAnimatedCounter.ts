@@ -1,11 +1,11 @@
-
-import React, { useState, useEffect, useRef } from 'react';
+// FIX: Add missing import for React
+import React from 'react';
 
 export const useAnimatedCounter = (targetValue: number, duration: number = 2000): [React.RefObject<HTMLSpanElement>, number] => {
-    const [count, setCount] = useState(0);
-    const ref = useRef<HTMLSpanElement>(null);
+    const [count, setCount] = React.useState(0);
+    const ref = React.useRef<HTMLSpanElement>(null);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {

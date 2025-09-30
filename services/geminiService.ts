@@ -1,23 +1,43 @@
-import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 import { ChatMessage, ChatRole } from '../types';
 
+// Define types for the dynamically imported module
+type GoogleGenAI = any;
+type GenerateContentResponse = any;
+
 let ai: GoogleGenAI | null = null;
+let genaiModule: any = null;
 const model = 'gemini-2.5-flash';
+
+// Helper function to dynamically import and initialize the AI module
+const getAiInstance = async (): Promise<GoogleGenAI> => {
+    if (ai) {
+        return ai;
+    }
+
+    if (!genaiModule) {
+        // Dynamically import the ESM-only dependency.
+        // The bundler will handle this import statement.
+        genaiModule = await import('https://esm.sh/@google/genai@latest');
+    }
+
+    const { GoogleGenAI } = genaiModule;
+
+    const API_KEY = process.env.API_KEY;
+    if (!API_KEY) {
+        console.error("CRITICAL: Gemini API key not found. The application will not be able to connect to the AI service. Ensure the API_KEY environment variable is set.");
+        throw new Error("API-avainta ei ole määritetty. Ota yhteyttä sivuston ylläpitoon.");
+    }
+    ai = new GoogleGenAI({ apiKey: API_KEY });
+    return ai;
+};
+
 
 export const getGeminiResponse = async (history: ChatMessage[], newMessage: string): Promise<string> => {
     try {
-        if (!ai) {
-            // Per guidelines, use process.env.API_KEY directly, assuming it's available in the execution context.
-            const API_KEY = process.env.API_KEY;
-            if (!API_KEY) {
-                console.error("CRITICAL: Gemini API key not found. The application will not be able to connect to the AI service. Ensure the API_KEY environment variable is set.");
-                return "API-avainta ei ole määritetty. Ota yhteyttä sivuston ylläpitoon.";
-            }
-            ai = new GoogleGenAI({ apiKey: API_KEY });
-        }
+        const aiInstance = await getAiInstance();
 
         // Use the new chat session creation method
-        const chat = ai.chats.create({
+        const chat = aiInstance.chats.create({
           model,
           // Map history to the correct format
           history: history.map(msg => ({
@@ -37,7 +57,10 @@ export const getGeminiResponse = async (history: ChatMessage[], newMessage: stri
 
     } catch (error) {
         console.error("Error calling Gemini API:", error);
-        // Reset the instance if there's an error, maybe the key was invalid.
+         if (error instanceof Error && error.message.includes("API-avainta")) {
+            return error.message;
+        }
+        // Reset the instance if there's an error
         ai = null; 
         return "Pahoittelut, mutta tekoälyavustajassa on tällä hetkellä tekninen ongelma. Yritä hetken päästä uudelleen.";
     }

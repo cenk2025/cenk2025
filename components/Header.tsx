@@ -1,14 +1,15 @@
-
-import React, { useState, useEffect } from 'react';
+// FIX: Add missing import for React
+import React from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useTheme } from '../contexts/ThemeContext';
 import { useAuth } from '../contexts/AuthContext';
-import { motion, AnimatePresence } from 'framer-motion';
+// FIX: Import 'Variants' type to fix type errors with framer-motion animations
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { SERVICES_DATA } from '../constants';
 import type { Service } from '../types';
 
 const SunIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="5"></circle>
         <line x1="12" y1="1" x2="12" y2="3"></line>
         <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -22,21 +23,21 @@ const SunIcon = () => (
 );
 
 const MoonIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
     </svg>
 );
 
 const MenuIcon = () => (
-     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
 );
 
 const CloseIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
 );
 
 const ChevronDownIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-200"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-200"><polyline points="6 9 12 15 18 9"></polyline></svg>
 );
 
 const activeLinkStyle = {
@@ -48,16 +49,16 @@ const activeLinkStyle = {
 const Header: React.FC = () => {
     const { theme, toggleTheme } = useTheme();
     const { user, logout } = useAuth();
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
-    const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const [isScrolled, setIsScrolled] = React.useState(false);
+    const [isMegaMenuOpen, setIsMegaMenuOpen] = React.useState(false);
     const navigate = useNavigate();
 
     const coreServices = SERVICES_DATA.slice(0, 3);
     const aiServices = SERVICES_DATA.slice(3, 6);
 
     // Scroll detection for header style
-    useEffect(() => {
+    React.useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 10);
         };
@@ -66,7 +67,7 @@ const Header: React.FC = () => {
     }, []);
 
     // Body scroll lock for mobile menu
-    useEffect(() => {
+    React.useEffect(() => {
         if (isMenuOpen) {
             document.body.classList.add('overflow-hidden');
         } else {
@@ -84,12 +85,12 @@ const Header: React.FC = () => {
     };
     
     // Animation variants for Framer Motion
-    const mobileMenuVariants = {
+    const mobileMenuVariants: Variants = {
         hidden: { opacity: 0, transition: { when: "afterChildren" } },
         visible: { opacity: 1, transition: { when: "beforeChildren", staggerChildren: 0.08 } },
     };
 
-    const mobileNavItemVariants = {
+    const mobileNavItemVariants: Variants = {
         hidden: { y: -20, opacity: 0 },
         visible: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 120 } },
     };

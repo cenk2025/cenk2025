@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// FIX: Add missing import for React
+import React from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -39,8 +40,8 @@ const sendContactEmail = async (formData: ContactFormData): Promise<{ success: b
 
 const ContactForm: React.FC = () => {
     const [ref, isVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
-    const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-    const [errorMessage, setErrorMessage] = useState('');
+    const [status, setStatus] = React.useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = React.useState('');
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();

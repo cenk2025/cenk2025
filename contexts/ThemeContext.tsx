@@ -1,5 +1,5 @@
-
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+// FIX: Add missing import for React
+import React from 'react';
 
 // --- Theme Provider Logic ---
 interface ThemeContextType {
@@ -7,24 +7,24 @@ interface ThemeContextType {
     toggleTheme: () => void;
 }
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const ThemeContext = React.createContext<ThemeContextType | undefined>(undefined);
 
 export const useTheme = () => {
-    const context = useContext(ThemeContext);
+    const context = React.useContext(ThemeContext);
     if (!context) {
         throw new Error('useTheme must be used within a ThemeProvider');
     }
     return context;
 };
 
-export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-    const [theme, setTheme] = useState(() => {
+export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const [theme, setTheme] = React.useState(() => {
         const savedTheme = localStorage.getItem('theme');
         const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         return savedTheme || (userPrefersDark ? 'dark' : 'light');
     });
 
-    useEffect(() => {
+    React.useEffect(() => {
         const root = window.document.documentElement;
         root.classList.remove('light', 'dark');
         root.classList.add(theme);

@@ -1,6 +1,5 @@
-
-
-import React, { useState, useRef, useEffect } from 'react';
+// FIX: Add missing import for React
+import React from 'react';
 import { getGeminiResponse } from '../services/geminiService';
 import type { ChatMessage } from '../types';
 import { ChatRole } from '../types';
@@ -12,14 +11,14 @@ const initialHistory: ChatMessage[] = [
 
 
 const AIChatWidget: React.FC = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [input, setInput] = useState('');
+    const [isOpen, setIsOpen] = React.useState(false);
+    const [input, setInput] = React.useState('');
     // Use the initial state constant
-    const [history, setHistory] = useState<ChatMessage[]>(initialHistory);
-    const [isLoading, setIsLoading] = useState(false);
-    const chatEndRef = useRef<HTMLDivElement>(null);
+    const [history, setHistory] = React.useState<ChatMessage[]>(initialHistory);
+    const [isLoading, setIsLoading] = React.useState(false);
+    const chatEndRef = React.useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
+    React.useEffect(() => {
         chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [history]);
 
@@ -62,7 +61,7 @@ const AIChatWidget: React.FC = () => {
                     {isOpen ? (
                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                     ) : (
-                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                     )}
                 </button>
             </div>

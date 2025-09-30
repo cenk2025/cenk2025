@@ -1,6 +1,5 @@
-
-
-import React, { useEffect } from 'react';
+// FIX: Add missing import for React
+import React from 'react';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
 import ProcessTimeline from '../components/ProcessTimeline';
@@ -12,7 +11,7 @@ import ContactForm from '../components/ContactForm';
 import SEO from '../components/SEO';
 
 const HomePage: React.FC = () => {
-    useEffect(() => {
+    React.useEffect(() => {
         const structuredData = {
             "@context": "https://schema.org",
             "@graph": [

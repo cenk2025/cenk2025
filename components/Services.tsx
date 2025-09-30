@@ -1,6 +1,5 @@
 
 
-import React from 'react';
 import { SERVICES_DATA } from '../constants';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 

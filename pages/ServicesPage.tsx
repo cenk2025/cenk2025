@@ -1,6 +1,5 @@
 
 
-import React from 'react';
 import Services from '../components/Services';
 import SEO from '../components/SEO';
 

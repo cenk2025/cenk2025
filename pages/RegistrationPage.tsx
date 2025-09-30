@@ -1,17 +1,17 @@
-
-import React, { useState } from 'react';
+// FIX: Add missing import for React
+import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import SEO from '../components/SEO';
 import { motion } from 'framer-motion';
 
 const RegistrationPage: React.FC = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [error, setError] = useState('');
-    const [success, setSuccess] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    const [confirmPassword, setConfirmPassword] = React.useState('');
+    const [error, setError] = React.useState('');
+    const [success, setSuccess] = React.useState('');
+    const [isLoading, setIsLoading] = React.useState(false);
     const { register } = useAuth();
     const navigate = useNavigate();
 
