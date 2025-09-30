@@ -37,7 +37,7 @@ export const getGeminiResponse = async (history: ChatMessage[], newMessage: stri
           },
         });
 
-        // Use the correct method to send a message
+        // FIX: The sendMessage method expects an object with a `message` property, not a plain string.
         const response: GenerateContentResponse = await chat.sendMessage({ message: newMessage });
         
         // Use the direct .text accessor
