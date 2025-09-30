@@ -72,11 +72,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    
-    <!-- SystemJS for in-browser module loading and transpilation -->
-    <script src="https://unpkg.com/systemjs@6.15.1/dist/s.min.js"></script>
-    <script src="https://unpkg.com/systemjs-plugin-babel@0.0.25/plugin-babel.js"></script>
-    <script src="https://unpkg.com/systemjs-plugin-babel@0.0.25/systemjs-babel-build.js"></script>
 <script type="importmap">
 {
   "imports": {
@@ -92,37 +87,6 @@
 </head>
 <body class="text-light-text dark:text-dark-text font-sans transition-colors duration-300 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 dark:bg-dark-bg bg-[length:200%_200%] animate-subtle-gradient">
     <div id="root"></div>
-
-    <!-- Configure and run SystemJS -->
-    <script>
-        System.config({
-            transpiler: 'plugin-babel',
-            // Add babelOptions to properly handle JSX and React syntax
-            babelOptions: {
-                react: true
-            },
-            meta: {
-                // Let babel know to transpile these file extensions
-                '*.ts': { loader: 'plugin-babel' },
-                '*.tsx': { loader: 'plugin-babel' }
-            },
-            map: {
-                // Map dependencies to their CDN URLs
-                'react': 'https://aistudiocdn.com/react@^19.1.1',
-                'react-dom': 'https://aistudiocdn.com/react-dom@^19.1.1',
-                'react-dom/client': 'https://aistudiocdn.com/react-dom@^19.1.1/client.js',
-                'react-router-dom': 'https://aistudiocdn.com/react-router-dom@^7.9.3',
-                'framer-motion': 'https://aistudiocdn.com/framer-motion@^12.23.22',
-                '@google/genai': 'https://aistudiocdn.com/@google/genai@^1.21.0',
-
-                // Babel plugin itself
-                'plugin-babel': 'https://unpkg.com/systemjs-plugin-babel@0.0.25/plugin-babel.js',
-                'systemjs-babel-build': 'https://unpkg.com/systemjs-plugin-babel@0.0.25/systemjs-babel-build.js'
-            }
-        });
-
-        // Import the main application file
-        System.import('./index.tsx').catch(function(err){ console.error('SystemJS Error:', err); });
-    </script>
+    <script defer src="./bundle.js"></script>
 </body>
 </html>
