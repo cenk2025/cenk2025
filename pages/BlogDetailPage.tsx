@@ -1,10 +1,10 @@
 
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { BLOG_POSTS_DATA } from '../constants.tsx';
-import SEO from '../components/SEO.tsx';
-import { getCategoryColor } from '../components/BlogTeaser.tsx';
-import SocialShareButtons from '../components/SocialShareButtons.tsx';
+import { BLOG_POSTS_DATA } from '../constants';
+import SEO from '../components/SEO';
+import { getCategoryColor } from '../components/BlogTeaser';
+import SocialShareButtons from '../components/SocialShareButtons';
 import { motion } from 'framer-motion';
 
 const BlogDetailPage: React.FC = () => {

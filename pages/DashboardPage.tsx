@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext.tsx';
-import SEO from '../components/SEO.tsx';
+import { useAuth } from '../contexts/AuthContext';
+import SEO from '../components/SEO';
 import { motion } from 'framer-motion';
 
 const DashboardPage: React.FC = () => {

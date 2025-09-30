@@ -1,5 +1,5 @@
 import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
-import { ChatMessage, ChatRole } from '../types.ts';
+import { ChatMessage, ChatRole } from '../types';
 
 let ai: GoogleGenAI | null = null;
 const model = 'gemini-2.5-flash';

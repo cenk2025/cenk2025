@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BLOG_POSTS_DATA } from '../constants.tsx';
-import { useScrollAnimation } from '../hooks/useScrollAnimation.ts';
-import type { BlogPost } from '../types.ts';
+import { BLOG_POSTS_DATA } from '../constants';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import type { BlogPost } from '../types';
 
 interface BlogTeaserProps {
     fullPage?: boolean;

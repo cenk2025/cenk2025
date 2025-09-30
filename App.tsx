@@ -1,25 +1,22 @@
-
-
-
 import React from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
-import Header from './components/Header.tsx';
-import Footer from './components/Footer.tsx';
-import HomePage from './pages/HomePage.tsx';
-import ServicesPage from './pages/ServicesPage.tsx';
-import PortfolioPage from './pages/PortfolioPage.tsx';
-import BlogPage from './pages/BlogPage.tsx';
-import ContactPage from './pages/ContactPage.tsx';
-import LoginPage from './pages/LoginPage.tsx';
-import RegistrationPage from './pages/RegistrationPage.tsx';
-import DashboardPage from './pages/DashboardPage.tsx';
-import AIChatWidget from './components/AIChatWidget.tsx';
-import { useCookieConsent } from './hooks/useCookieConsent.ts';
-import CookieConsentBanner from './components/CookieConsentBanner.tsx';
-import { AuthProvider } from './contexts/AuthContext.tsx';
-import ProtectedRoute from './components/ProtectedRoute.tsx';
-import BlogDetailPage from './pages/BlogDetailPage.tsx';
-import { ThemeProvider } from './contexts/ThemeContext.tsx';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import ServicesPage from './pages/ServicesPage';
+import PortfolioPage from './pages/PortfolioPage';
+import BlogPage from './pages/BlogPage';
+import ContactPage from './pages/ContactPage';
+import LoginPage from './pages/LoginPage';
+import RegistrationPage from './pages/RegistrationPage';
+import DashboardPage from './pages/DashboardPage';
+import AIChatWidget from './components/AIChatWidget';
+import { useCookieConsent } from './hooks/useCookieConsent';
+import CookieConsentBanner from './components/CookieConsentBanner';
+import { AuthProvider } from './contexts/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import BlogDetailPage from './pages/BlogDetailPage';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 
 const ScrollToTop = () => {

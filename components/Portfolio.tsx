@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PORTFOLIO_DATA } from '../constants.tsx';
-import { useScrollAnimation } from '../hooks/useScrollAnimation.ts';
+import { PORTFOLIO_DATA } from '../constants';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 interface PortfolioProps {
     fullPage?: boolean;

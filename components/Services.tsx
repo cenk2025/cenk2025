@@ -1,8 +1,8 @@
 
 
 import React from 'react';
-import { SERVICES_DATA } from '../constants.tsx';
-import { useScrollAnimation } from '../hooks/useScrollAnimation.ts';
+import { SERVICES_DATA } from '../constants';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Services: React.FC = () => {
     const [ref, isVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation.ts';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // --- Email Sending Service (Simulation) ---

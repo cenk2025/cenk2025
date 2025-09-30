@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext.tsx';
-import SEO from '../components/SEO.tsx';
+import { useAuth } from '../contexts/AuthContext';
+import SEO from '../components/SEO';
 import { motion } from 'framer-motion';
 
 const LoginPage: React.FC = () => {
