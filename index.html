@@ -84,9 +84,12 @@
   }
 }
 </script>
+<!-- Add Babel Standalone for in-browser JSX & TypeScript transpilation -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body class="text-light-text dark:text-dark-text font-sans transition-colors duration-300 bg-gradient-to-br from-gray-50 via-gray-100 to-gray-200 dark:bg-dark-bg bg-[length:200%_200%] animate-subtle-gradient">
     <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
+    <!-- Changed script type to 'text/babel' to be processed by Babel Standalone -->
+    <script type="text/babel" data-presets="react,typescript" src="./index.tsx"></script>
 </body>
 </html>
