@@ -5,13 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Voon | Digitaalisen Markkinoinnin Asiantuntijat</title>
 
-  <!-- Tailwind -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'brand-purple': '#6f42c1',
+            'brand-teal': '#20c997',
+            'brand-coral': '#fd7e14',
+            'light-bg': '#f8f9fa',
+            'light-card': '#ffffff',
+            'light-text': '#212529',
+            'dark-bg': '#121212',
+            'dark-card': '#1e1e1e',
+            'dark-text': '#f8f9fa',
+          },
+          keyframes: {
+            'background-pan': {
+              '0%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' },
+              '100%': { backgroundPosition: '0% 50%' },
+            },
+            'pulse-glow': {
+              '0%, 100%': { boxShadow: '0 0 20px rgba(111, 66, 193, 0.4)' },
+              '50%': { boxShadow: '0 0 35px rgba(111, 66, 193, 0.8)' },
+            },
+            'fade-in-up': {
+              'from': { opacity: '0', transform: 'translateY(20px)' },
+              'to': { opacity: '1', transform: 'translateY(0)' },
+            },
+          },
+          animation: {
+            'background-pan': 'background-pan 10s ease infinite',
+            'pulse-glow': 'pulse-glow 3s infinite ease-in-out',
+            'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
+          }
+        }
+      }
+    }
+  </script>
 
   <!-- (Önemli) Import Map shim: Safari ve eski Chromium için gerekir -->
   <script async src="https://unpkg.com/es-module-shims@1.10.0/dist/es-module-shims.js"></script>
 
-  <!-- Tek React zinciri: 18.2.0'a sabitledik -->
+  <!-- Tamamen Düzeltilmiş Import Map: SADECE React v18 kullanılıyor, çakışma yok. -->
   <script type="importmap">
 {
   "imports": {
@@ -29,7 +69,7 @@
 
   <!-- Diğer meta/OG/Twitter etiketlerin burada kalabilir -->
 </head>
-<body class="font-sans bg-gray-50 text-gray-900 dark:bg-[#121212] dark:text-gray-50">
+<body class="font-sans bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text transition-colors duration-300">
   <div id="root"></div>
 
   <!-- Application entry point is loaded as a module -->

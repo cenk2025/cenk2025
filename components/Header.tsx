@@ -176,6 +176,7 @@ const Header: React.FC = () => {
                         </AnimatePresence>
                     </div>
                     <NavLink to="/referenssit" className="font-semibold transition-colors hover:text-brand-teal" style={({ isActive }) => isActive ? activeLinkStyle : {}}>Referenssit</NavLink>
+                    <NavLink to="/meista" className="font-semibold transition-colors hover:text-brand-teal" style={({ isActive }) => isActive ? activeLinkStyle : {}}>Meistä</NavLink>
                     <NavLink to="/blogi" className="font-semibold transition-colors hover:text-brand-teal" style={({ isActive }) => isActive ? activeLinkStyle : {}}>Blogi</NavLink>
                     {user && <NavLink to="/dashboard" className="font-semibold transition-colors hover:text-brand-teal" style={({ isActive }) => isActive ? activeLinkStyle : {}}>Dashboard</NavLink>}
                 </nav>
@@ -224,6 +225,9 @@ const Header: React.FC = () => {
                                 </motion.div>
                                 <motion.div variants={mobileNavItemVariants}>
                                     <NavLink to="/referenssit" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold transition-colors hover:text-brand-teal" style={({ isActive }) => isActive ? activeLinkStyle : {}}>Referenssit</NavLink>
+                                </motion.div>
+                                <motion.div variants={mobileNavItemVariants}>
+                                    <NavLink to="/meista" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold transition-colors hover:text-brand-teal" style={({ isActive }) => isActive ? activeLinkStyle : {}}>Meistä</NavLink>
                                 </motion.div>
                                 <motion.div variants={mobileNavItemVariants}>
                                     <NavLink to="/blogi" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold transition-colors hover:text-brand-teal" style={({ isActive }) => isActive ? activeLinkStyle : {}}>Blogi</NavLink>

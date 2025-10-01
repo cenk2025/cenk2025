@@ -18,6 +18,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import BlogDetailPage from './pages/BlogDetailPage';
 import { ThemeProvider } from './contexts/ThemeContext';
+import AboutUsPage from './pages/AboutUsPage';
 
 
 const ScrollToTop = () => {
@@ -45,6 +46,7 @@ function App() {
                                 <Route path="/" element={<HomePage />} />
                                 <Route path="/palvelut" element={<ServicesPage />} />
                                 <Route path="/referenssit" element={<PortfolioPage />} />
+                                <Route path="/meista" element={<AboutUsPage />} />
                                 <Route path="/blogi" element={<BlogPage />} />
                                 <Route path="/blogi/:postId" element={<BlogDetailPage />} />
                                 <Route path="/yhteys" element={<ContactPage />} />

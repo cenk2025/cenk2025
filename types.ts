@@ -1,4 +1,5 @@
-
+// FIX: Add missing import for React
+import React from 'react';
 
 export interface Service {
     icon: React.ReactNode;

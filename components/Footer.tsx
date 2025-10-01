@@ -15,6 +15,7 @@ const Footer: React.FC = () => {
                         <ul className="mt-4 space-y-2">
                             <li><Link to="/palvelut" className="text-light-text/70 dark:text-dark-text/70 hover:text-brand-teal">Palvelut</Link></li>
                             <li><Link to="/referenssit" className="text-light-text/70 dark:text-dark-text/70 hover:text-brand-teal">Referenssit</Link></li>
+                            <li><Link to="/meista" className="text-light-text/70 dark:text-dark-text/70 hover:text-brand-teal">Meistä</Link></li>
                             <li><Link to="/blogi" className="text-light-text/70 dark:text-dark-text/70 hover:text-brand-teal">Blogi</Link></li>
                             <li><Link to="/yhteys" className="text-light-text/70 dark:text-dark-text/70 hover:text-brand-teal">Ota yhteyttä</Link></li>
                         </ul>
