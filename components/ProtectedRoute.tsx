@@ -1,12 +1,8 @@
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext.jsx';
 
-interface ProtectedRouteProps {
-    children: React.ReactElement;
-}
-
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
+const ProtectedRoute = ({ children }) => {
     const { user, loading } = useAuth();
     const location = useLocation();
 

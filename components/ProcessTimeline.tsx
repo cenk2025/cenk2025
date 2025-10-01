@@ -1,15 +1,14 @@
-// FIX: Add missing import for React
 import React from 'react';
-// FIX: Import 'Variants' type to fix type errors with framer-motion animations
+// FIX: Imported Variants type from framer-motion.
 import { motion, useInView, Variants } from 'framer-motion';
-import { PROCESS_DATA } from '../constants';
+import { PROCESS_DATA } from '../constants.jsx';
 
-const ProcessTimeline: React.FC = () => {
+const ProcessTimeline = () => {
     const ref = React.useRef(null);
     // Trigger animation when 20% of the component is in view, and only run it once.
     const isInView = useInView(ref, { once: true, amount: 0.2 });
 
-    const timelineVariants: Variants = {
+    const timelineVariants = {
         hidden: {},
         visible: {
             transition: {
@@ -19,6 +18,7 @@ const ProcessTimeline: React.FC = () => {
     };
 
     // Animate the vertical line growing from the top
+    // FIX: Explicitly typed variants with Variants to fix type incompatibility issues with framer-motion's API.
     const lineVariants: Variants = {
         hidden: { scaleY: 0 },
         visible: {
@@ -28,8 +28,9 @@ const ProcessTimeline: React.FC = () => {
     };
 
     // Variants for each step container, animating from left or right based on position
+    // FIX: Explicitly typed variants with Variants to fix type incompatibility issues with framer-motion's API.
     const stepVariants: Variants = {
-        hidden: (index: number) => ({
+        hidden: (index) => ({
             opacity: 0,
             x: index % 2 === 0 ? -50 : 50,
         }),
@@ -41,6 +42,7 @@ const ProcessTimeline: React.FC = () => {
     };
 
     // Variants for the circle number indicator
+    // FIX: Explicitly typed variants with Variants to fix type incompatibility issues with framer-motion's API.
     const circleVariants: Variants = {
         hidden: { scale: 0 },
         visible: {

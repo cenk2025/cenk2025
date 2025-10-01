@@ -1,14 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BLOG_POSTS_DATA } from '../constants';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import type { BlogPost } from '../types';
+import { BLOG_POSTS_DATA } from '../constants.jsx';
+import { useScrollAnimation } from '../hooks/useScrollAnimation.js';
 
-interface BlogTeaserProps {
-    fullPage?: boolean;
-}
-
-export const getCategoryColor = (category: BlogPost['category']) => {
+export const getCategoryColor = (category) => {
     switch(category) {
         case 'Some': return 'bg-brand-teal text-white';
         case 'Kampanjat': return 'bg-brand-coral text-white';
@@ -17,8 +12,8 @@ export const getCategoryColor = (category: BlogPost['category']) => {
     }
 }
 
-const BlogTeaser: React.FC<BlogTeaserProps> = ({ fullPage = false }) => {
-    const [ref, isVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+const BlogTeaser = ({ fullPage = false }) => {
+    const [ref, isVisible] = useScrollAnimation({ threshold: 0.1 });
     const posts = fullPage ? BLOG_POSTS_DATA : BLOG_POSTS_DATA.slice(0, 3);
 
     return (

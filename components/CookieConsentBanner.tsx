@@ -1,12 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-interface CookieConsentBannerProps {
-    onAccept: () => void;
-    onReject: () => void;
-}
-
-const CookieConsentBanner: React.FC<CookieConsentBannerProps> = ({ onAccept, onReject }) => {
+const CookieConsentBanner = ({ onAccept, onReject }) => {
     return (
         <AnimatePresence>
             <motion.div

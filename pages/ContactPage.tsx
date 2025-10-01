@@ -1,8 +1,8 @@
 import React from 'react';
-import ContactForm from '../components/ContactForm';
-import SEO from '../components/SEO';
+import ContactForm from '../components/ContactForm.jsx';
+import SEO from '../components/SEO.jsx';
 
-const ContactPage: React.FC = () => {
+const ContactPage = () => {
   return (
     <>
       <SEO 

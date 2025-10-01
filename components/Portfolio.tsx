@@ -1,15 +1,10 @@
-// FIX: Add missing import for React
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PORTFOLIO_DATA } from '../constants';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { PORTFOLIO_DATA } from '../constants.jsx';
+import { useScrollAnimation } from '../hooks/useScrollAnimation.js';
 
-interface PortfolioProps {
-    fullPage?: boolean;
-}
-
-const Portfolio: React.FC<PortfolioProps> = ({ fullPage = false }) => {
-    const [ref, isVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+const Portfolio = ({ fullPage = false }) => {
+    const [ref, isVisible] = useScrollAnimation({ threshold: 0.1 });
     const [activeFilter, setActiveFilter] = React.useState('Kaikki');
 
     const categories = ['Kaikki', ...Array.from(new Set(PORTFOLIO_DATA.map(item => item.category)))];

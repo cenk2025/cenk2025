@@ -1,19 +1,11 @@
-// FIX: Add missing import for React
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-
-interface SEOProps {
-    title: string;
-    description: string;
-    imageUrl?: string;
-    type?: string;
-}
 
 const SITE_URL = 'https://voon.fi';
 const DEFAULT_IMAGE_URL = `https://picsum.photos/seed/voon-og-image/1200/630`;
 const SITE_NAME = 'Voon Marketing Agency';
 
-const SEO: React.FC<SEOProps> = ({ 
+const SEO = ({ 
     title, 
     description, 
     imageUrl = DEFAULT_IMAGE_URL,
@@ -25,9 +17,9 @@ const SEO: React.FC<SEOProps> = ({
     React.useEffect(() => {
         document.title = title;
 
-        const setMetaTag = (attr: 'name' | 'property', value: string, content: string) => {
+        const setMetaTag = (attr, value, content) => {
             const selector = `meta[${attr}='${value}']`;
-            let element = document.querySelector<HTMLMetaElement>(selector);
+            let element = document.querySelector(selector);
             if (!element) {
                 element = document.createElement('meta');
                 element.setAttribute(attr, value);

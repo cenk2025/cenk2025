@@ -1,10 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
-import SEO from '../components/SEO';
+import { useAuth } from '../contexts/AuthContext.jsx';
+import SEO from '../components/SEO.jsx';
 import { motion } from 'framer-motion';
 
-const DashboardPage: React.FC = () => {
+const DashboardPage = () => {
     const { user, logout } = useAuth();
     const navigate = useNavigate();
 

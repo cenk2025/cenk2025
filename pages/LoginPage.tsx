@@ -1,11 +1,10 @@
-// FIX: Add missing import for React
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
-import SEO from '../components/SEO';
+import { useAuth } from '../contexts/AuthContext.jsx';
+import SEO from '../components/SEO.jsx';
 import { motion } from 'framer-motion';
 
-const LoginPage: React.FC = () => {
+const LoginPage = () => {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [error, setError] = React.useState('');
@@ -13,14 +12,14 @@ const LoginPage: React.FC = () => {
     const { login } = useAuth();
     const navigate = useNavigate();
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
         setIsLoading(true);
         try {
             await login(email, password);
             navigate('/dashboard');
-        } catch (err: any) {
+        } catch (err) {
             setError(err.message || 'Kirjautuminen epäonnistui.');
         } finally {
             setIsLoading(false);

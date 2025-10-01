@@ -1,16 +1,6 @@
-// FIX: Add missing import for React
 import React from 'react';
-import type { User } from '../types';
 
-interface AuthContextType {
-    user: User | null;
-    loading: boolean;
-    login: (email: string, pass: string) => Promise<void>;
-    register: (email: string, pass: string) => Promise<void>;
-    logout: () => void;
-}
-
-const AuthContext = React.createContext<AuthContextType | undefined>(undefined);
+const AuthContext = React.createContext(undefined);
 
 export const useAuth = () => {
     const context = React.useContext(AuthContext);
@@ -20,9 +10,8 @@ export const useAuth = () => {
     return context;
 };
 
-// Fix: Refactored AuthProvider to use React.FC for more explicit and robust typing to resolve the 'missing children' error.
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [user, setUser] = React.useState<User | null>(null);
+export const AuthProvider = ({ children }) => {
+    const [user, setUser] = React.useState(null);
     const [loading, setLoading] = React.useState(true);
 
     React.useEffect(() => {
@@ -40,13 +29,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         }
     }, []);
 
-    const login = async (email: string, pass: string) => {
+    const login = async (email, pass) => {
         // --- This is a mock authentication function ---
         // In a real app, you would make an API call here.
+        // FIX: Specified <void> for Promises that resolve without a value to fix type errors.
         return new Promise<void>((resolve, reject) => {
             setTimeout(() => {
                 if (email === 'user@example.com' && pass === 'password123') {
-                    const userData: User = { email };
+                    const userData = { email };
                     localStorage.setItem('user', JSON.stringify(userData));
                     setUser(userData);
                     resolve();
@@ -57,8 +47,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         });
     };
 
-    const register = async (email: string, pass: string) => {
+    const register = async (email, pass) => {
         // --- This is a mock registration function ---
+        // FIX: Specified <void> for Promises that resolve without a value to fix type errors.
         return new Promise<void>((resolve, reject) => {
             setTimeout(() => {
                 if (email && pass) {

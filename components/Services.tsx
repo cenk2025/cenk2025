@@ -1,9 +1,9 @@
 import React from 'react';
-import { SERVICES_DATA } from '../constants';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { SERVICES_DATA } from '../constants.jsx';
+import { useScrollAnimation } from '../hooks/useScrollAnimation.js';
 
-const Services: React.FC = () => {
-    const [ref, isVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+const Services = () => {
+    const [ref, isVisible] = useScrollAnimation({ threshold: 0.2 });
 
     return (
         <section ref={ref} className="py-20 bg-light-bg dark:bg-dark-bg">

@@ -1,17 +1,9 @@
-// FIX: Add missing import for React
 import React from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useScrollAnimation } from '../hooks/useScrollAnimation.js';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // --- Email Sending Service (Simulation) ---
-interface ContactFormData {
-    name: string;
-    email: string;
-    company?: string;
-    message: string;
-}
-
-const sendContactEmail = async (formData: ContactFormData): Promise<{ success: boolean; message: string }> => {
+const sendContactEmail = async (formData) => {
     // --- CRITICAL SECURITY WARNING ---
     // In a real production application, you would NEVER handle email sending
     // or use SMTP credentials on the client-side. This is a major security risk.
@@ -38,22 +30,22 @@ const sendContactEmail = async (formData: ContactFormData): Promise<{ success: b
 // --- End Email Sending Service ---
 
 
-const ContactForm: React.FC = () => {
-    const [ref, isVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
-    const [status, setStatus] = React.useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+const ContactForm = () => {
+    const [ref, isVisible] = useScrollAnimation({ threshold: 0.2 });
+    const [status, setStatus] = React.useState('idle');
     const [errorMessage, setErrorMessage] = React.useState('');
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setStatus('submitting');
         setErrorMessage('');
 
         const form = e.currentTarget;
         const formData = {
-            name: (form.elements.namedItem('name') as HTMLInputElement).value,
-            email: (form.elements.namedItem('email') as HTMLInputElement).value,
-            company: (form.elements.namedItem('company') as HTMLInputElement).value,
-            message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+            name: form.elements.namedItem('name').value,
+            email: form.elements.namedItem('email').value,
+            company: form.elements.namedItem('company').value,
+            message: form.elements.namedItem('message').value,
         };
 
         try {

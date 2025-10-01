@@ -1,13 +1,12 @@
-// FIX: Add missing React import
 import React from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
-// FIX: Import 'Variants' type to fix type errors with framer-motion animations
+import { useScrollAnimation } from '../hooks/useScrollAnimation.js';
+// FIX: Imported Variants type from framer-motion.
 import { motion, Variants } from 'framer-motion';
 
-const VideoDemos: React.FC = () => {
-    const [ref, isVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+const VideoDemos = () => {
+    const [ref, isVisible] = useScrollAnimation({ threshold: 0.2 });
 
-    const containerVariants: Variants = {
+    const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
@@ -18,6 +17,7 @@ const VideoDemos: React.FC = () => {
         },
     };
 
+    // FIX: Explicitly typed itemVariants with Variants to fix type incompatibility issues with framer-motion's API.
     const itemVariants: Variants = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },

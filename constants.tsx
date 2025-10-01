@@ -1,5 +1,4 @@
 import React from 'react';
-import type { Service, CaseStudy, BlogPost, ProcessStep } from './types';
 
 // Icons
 export const SalesAgentIcon = () => (
@@ -21,15 +20,15 @@ export const ShoppableVideoIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 6h10"/><path d="m14 6 7.55-4.24a1 1 0 0 1 1.28.83L22 18.2a1 1 0 0 1-1.28.83L14 14"/><path d="M12 12H2l4-10"/><path d="m6 12 1.5-6.5"/><circle cx="8" cy="18" r="2"/><circle cx="16" cy="18" r="2"/><path d="M10 18h4"/></svg>
 );
 
-export const InnovationIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15.63 3.66a9 9 0 0 1 2.25 10.74L13 21.74a2 2 0 0 1-3.99-.02L4.12 14.4a9 9 0 0 1 2.25-10.74 9 9 0 0 1 9.26 0Z"/><path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg>;
-export const PartnershipIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>;
-export const TransparencyIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/><path d="m14 12-3 3 3 3"/></svg>;
-export const ResultsIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>;
+export const InnovationIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15.63 3.66a9 9 0 0 1 2.25 10.74L13 21.74a2 2 0 0 1-3.99-.02L4.12 14.4a9 9 0 0 1 2.25-10.74 9 9 0 0 1 9.26 0Z"/><path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg>;
+export const PartnershipIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>;
+export const TransparencyIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/><path d="m14 12-3 3 3 3"/></svg>;
+export const ResultsIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>;
 
 
 
 // Data
-export const SERVICES_DATA: Service[] = [
+export const SERVICES_DATA = [
     {
         icon: <SalesAgentIcon />,
         title: "Tekoälyagentit myyntiin & tukeen",
@@ -68,7 +67,7 @@ export const SERVICES_DATA: Service[] = [
     }
 ];
 
-export const PORTFOLIO_DATA: CaseStudy[] = [
+export const PORTFOLIO_DATA = [
     { 
         id: 1, 
         title: "longeviq.voon.fi", 
@@ -115,7 +114,7 @@ export const PORTFOLIO_DATA: CaseStudy[] = [
     },
 ];
 
-export const BLOG_POSTS_DATA: BlogPost[] = [
+export const BLOG_POSTS_DATA = [
     { 
         id: 1, 
         title: "Miten tekoäly muuttaa markkinointia vuonna 2024?", 
@@ -184,7 +183,7 @@ Markkinoinnin automaatio on prosessien ja työkalujen järjestelmä, joka on suu
     },
 ];
 
-export const PROCESS_DATA: ProcessStep[] = [
+export const PROCESS_DATA = [
     { step: 1, title: "Tutkimus & Strategia", description: "Syvennymme liiketoimintaasi, yleisöösi ja kilpailukenttääsi. Määrittelemme yhdessä selkeät tavoitteet ja luomme datalähtöisen strategian." },
     { step: 2, title: "Luova Suunnittelu", description: "Ideoidemme ja suunnittelemme vaikuttavat konseptit ja sisällöt, jotka herättävät brändisi eloon ja puhuttelevat kohderyhmääsi." },
     { step: 3, title: "Toteutus & Aktivointi", description: "Toteutamme kampanjat monikanavaisesti, optimoiden jatkuvasti parhaiden tulosten saavuttamiseksi. Tekninen osaamisemme takaa sujuvan toteutuksen." },

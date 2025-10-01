@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useScrollAnimation } from '../hooks/useScrollAnimation.js';
 
-const Hero: React.FC = () => {
-    const [ref, isVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.3 });
+const Hero = () => {
+    const [ref, isVisible] = useScrollAnimation({ threshold: 0.3 });
 
     return (
         <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">

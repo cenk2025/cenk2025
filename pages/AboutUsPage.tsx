@@ -1,15 +1,13 @@
 import React from 'react';
-import SEO from '../components/SEO';
+import SEO from '../components/SEO.jsx';
 import { motion } from 'framer-motion';
-import { VALUES_DATA, TEAM_DATA } from '../constants';
-import TeamMemberCard from '../components/TeamMemberCard';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { VALUES_DATA, TEAM_DATA } from '../constants.jsx';
+import TeamMemberCard from '../components/TeamMemberCard.jsx';
+import { useScrollAnimation } from '../hooks/useScrollAnimation.js';
 
-const AboutUsPage: React.FC = () => {
-    // FIX: Removed the invalid 'triggerOnce' property. The useScrollAnimation hook is designed to run only once by default.
-    const [valuesRef, valuesInView] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
-    // FIX: Removed the invalid 'triggerOnce' property. The useScrollAnimation hook is designed to run only once by default.
-    const [teamRef, teamInView] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+const AboutUsPage = () => {
+    const [valuesRef, valuesInView] = useScrollAnimation({ threshold: 0.2 });
+    const [teamRef, teamInView] = useScrollAnimation({ threshold: 0.1 });
 
     const containerVariants = {
         hidden: { opacity: 0 },

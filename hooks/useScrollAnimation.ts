@@ -1,8 +1,9 @@
-// FIX: Add missing import for React
 import React from 'react';
 
-export const useScrollAnimation = <T extends HTMLElement,>(options?: IntersectionObserverInit): [React.RefObject<T>, boolean] => {
-    const ref = React.useRef<T>(null);
+// FIX: Added IntersectionObserverInit type for options to improve type safety.
+export const useScrollAnimation = (options?: IntersectionObserverInit) => {
+    // FIX: Specified HTMLElement for the ref to ensure type compatibility with the 'ref' prop.
+    const ref = React.useRef<HTMLElement>(null);
     const [isVisible, setIsVisible] = React.useState(false);
 
     React.useEffect(() => {
@@ -25,5 +26,6 @@ export const useScrollAnimation = <T extends HTMLElement,>(options?: Intersectio
         };
     }, [ref, options]);
 
-    return [ref, isVisible];
+    // FIX: Added 'as const' to ensure a tuple type is inferred, resolving destructuring assignment errors.
+    return [ref, isVisible] as const;
 };

@@ -1,22 +1,20 @@
-// FIX: Add missing import for React
 import React from 'react';
-import { getGeminiResponse } from '../services/geminiService';
-import type { ChatMessage } from '../types';
-import { ChatRole } from '../types';
+import { getGeminiResponse } from '../services/geminiService.js';
+import { ChatRole } from '../types.js';
 
 // Define the initial state outside the component for reuse
-const initialHistory: ChatMessage[] = [
+const initialHistory = [
     { role: ChatRole.MODEL, text: "Hei! Olen Voon Assist. Miten voin auttaa sinua tänään markkinointiin liittyen?" }
 ];
 
 
-const AIChatWidget: React.FC = () => {
+const AIChatWidget = () => {
     const [isOpen, setIsOpen] = React.useState(false);
     const [input, setInput] = React.useState('');
     // Use the initial state constant
-    const [history, setHistory] = React.useState<ChatMessage[]>(initialHistory);
+    const [history, setHistory] = React.useState(initialHistory);
     const [isLoading, setIsLoading] = React.useState(false);
-    const chatEndRef = React.useRef<HTMLDivElement>(null);
+    const chatEndRef = React.useRef(null);
 
     React.useEffect(() => {
         chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -25,19 +23,19 @@ const AIChatWidget: React.FC = () => {
     const handleSendMessage = async () => {
         if (!input.trim() || isLoading) return;
         
-        const userMessage: ChatMessage = { role: ChatRole.USER, text: input };
+        const userMessage = { role: ChatRole.USER, text: input };
         setHistory(prev => [...prev, userMessage]);
         setInput('');
         setIsLoading(true);
 
         const response = await getGeminiResponse(history, input);
         
-        const modelMessage: ChatMessage = { role: ChatRole.MODEL, text: response };
+        const modelMessage = { role: ChatRole.MODEL, text: response };
         setHistory(prev => [...prev, modelMessage]);
         setIsLoading(false);
     };
 
-    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
             handleSendMessage();
         }

@@ -1,8 +1,8 @@
 import React from 'react';
-import BlogTeaser from '../components/BlogTeaser';
-import SEO from '../components/SEO';
+import BlogTeaser from '../components/BlogTeaser.jsx';
+import SEO from '../components/SEO.jsx';
 
-const BlogPage: React.FC = () => {
+const BlogPage = () => {
   return (
     <>
       <SEO 

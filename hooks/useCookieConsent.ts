@@ -1,12 +1,9 @@
-// FIX: Add missing import for React
 import React from 'react';
-
-type ConsentStatus = 'pending' | 'accepted' | 'rejected';
 
 const COOKIE_CONSENT_KEY = 'voon_cookie_consent';
 
 export const useCookieConsent = () => {
-    const [consentStatus, setConsentStatus] = React.useState<ConsentStatus>('pending');
+    const [consentStatus, setConsentStatus] = React.useState('pending');
 
     React.useEffect(() => {
         const storedConsent = localStorage.getItem(COOKIE_CONSENT_KEY);

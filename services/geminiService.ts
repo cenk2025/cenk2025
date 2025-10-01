@@ -1,11 +1,11 @@
-import { GoogleGenAI, GenerateContentResponse } from '@google/genai';
-import { ChatMessage, ChatRole } from '../types';
+import { GoogleGenAI } from '@google/genai';
+import { ChatRole } from '../types.js';
 
 let ai: GoogleGenAI | null = null;
 const model = 'gemini-2.5-flash';
 
 // Helper function to initialize the AI module
-const getAiInstance = (): GoogleGenAI => {
+const getAiInstance = () => {
     if (ai) {
         return ai;
     }
@@ -20,7 +20,7 @@ const getAiInstance = (): GoogleGenAI => {
 };
 
 
-export const getGeminiResponse = async (history: ChatMessage[], newMessage: string): Promise<string> => {
+export const getGeminiResponse = async (history: Array<{role: string, text: string}>, newMessage: string) => {
     try {
         const aiInstance = getAiInstance();
 
@@ -37,8 +37,7 @@ export const getGeminiResponse = async (history: ChatMessage[], newMessage: stri
           },
         });
 
-        // FIX: The sendMessage method expects an object with a `message` property, not a plain string.
-        const response: GenerateContentResponse = await chat.sendMessage({ message: newMessage });
+        const response = await chat.sendMessage({ message: newMessage });
         
         // Use the direct .text accessor
         return response.text;
@@ -46,10 +45,9 @@ export const getGeminiResponse = async (history: ChatMessage[], newMessage: stri
     } catch (error) {
         console.error("Error calling Gemini API:", error);
          if (error instanceof Error && error.message.includes("API-avainta")) {
+            ai = null; // Reset instance only if API key is the issue.
             return error.message;
         }
-        // Reset the instance if there's an error
-        ai = null; 
         return "Pahoittelut, mutta tekoälyavustajassa on tällä hetkellä tekninen ongelma. Yritä hetken päästä uudelleen.";
     }
 };

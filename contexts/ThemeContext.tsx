@@ -1,13 +1,7 @@
-// FIX: Add missing import for React
 import React from 'react';
 
 // --- Theme Provider Logic ---
-interface ThemeContextType {
-    theme: string;
-    toggleTheme: () => void;
-}
-
-const ThemeContext = React.createContext<ThemeContextType | undefined>(undefined);
+const ThemeContext = React.createContext(undefined);
 
 export const useTheme = () => {
     const context = React.useContext(ThemeContext);
@@ -17,7 +11,7 @@ export const useTheme = () => {
     return context;
 };
 
-export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = React.useState(() => {
         const savedTheme = localStorage.getItem('theme');
         const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;

@@ -1,13 +1,13 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { BLOG_POSTS_DATA } from '../constants';
-import SEO from '../components/SEO';
-import { getCategoryColor } from '../components/BlogTeaser';
-import SocialShareButtons from '../components/SocialShareButtons';
+import { BLOG_POSTS_DATA } from '../constants.jsx';
+import SEO from '../components/SEO.jsx';
+import { getCategoryColor } from '../components/BlogTeaser.jsx';
+import SocialShareButtons from '../components/SocialShareButtons.jsx';
 import { motion } from 'framer-motion';
 
-const BlogDetailPage: React.FC = () => {
-    const { postId } = useParams<{ postId: string }>();
+const BlogDetailPage = () => {
+    const { postId } = useParams();
     const post = BLOG_POSTS_DATA.find(p => p.id === Number(postId));
 
     if (!post) {
@@ -17,11 +17,11 @@ const BlogDetailPage: React.FC = () => {
     const pageUrl = window.location.href;
 
     // A simple markdown-to-HTML parser for demonstration
-    const renderContent = (content: string) => {
+    const renderContent = (content) => {
         const paragraphs = content.trim().split('\n').filter(p => p.trim() !== '');
         
-        const elements: React.ReactNode[] = [];
-        let listItems: React.ReactNode[] = [];
+        const elements = [];
+        let listItems = [];
 
         const flushList = () => {
             if (listItems.length > 0) {

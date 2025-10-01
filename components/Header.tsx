@@ -1,12 +1,10 @@
-// FIX: Add missing import for React
 import React from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { useTheme } from '../contexts/ThemeContext';
-import { useAuth } from '../contexts/AuthContext';
-// FIX: Import 'Variants' type to fix type errors with framer-motion animations
+import { useTheme } from '../contexts/ThemeContext.jsx';
+import { useAuth } from '../contexts/AuthContext.jsx';
+// FIX: Imported Variants type from framer-motion.
 import { motion, AnimatePresence, Variants } from 'framer-motion';
-import { SERVICES_DATA } from '../constants';
-import type { Service } from '../types';
+import { SERVICES_DATA } from '../constants.jsx';
 
 const SunIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -46,7 +44,7 @@ const activeLinkStyle = {
     WebkitTextFillColor: 'transparent',
 };
 
-const Header: React.FC = () => {
+const Header = () => {
     const { theme, toggleTheme } = useTheme();
     const { user, logout } = useAuth();
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -85,11 +83,12 @@ const Header: React.FC = () => {
     };
     
     // Animation variants for Framer Motion
-    const mobileMenuVariants: Variants = {
+    const mobileMenuVariants = {
         hidden: { opacity: 0, transition: { when: "afterChildren" } },
         visible: { opacity: 1, transition: { when: "beforeChildren", staggerChildren: 0.08 } },
     };
 
+    // FIX: Explicitly typed mobileNavItemVariants with Variants to fix type incompatibility issues with framer-motion's API.
     const mobileNavItemVariants: Variants = {
         hidden: { y: -20, opacity: 0 },
         visible: { y: 0, opacity: 1, transition: { type: 'spring', stiffness: 120 } },
