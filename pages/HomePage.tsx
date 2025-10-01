@@ -1,13 +1,13 @@
 import React from 'react';
-import Hero from '../components/Hero.jsx';
-import Services from '../components/Services.jsx';
-import ProcessTimeline from '../components/ProcessTimeline.jsx';
-import Testimonials from '../components/Testimonials.jsx';
-import Portfolio from '../components/Portfolio.jsx';
-import VideoDemos from '../components/VideoDemos.jsx';
-import BlogTeaser from '../components/BlogTeaser.jsx';
-import ContactForm from '../components/ContactForm.jsx';
-import SEO from '../components/SEO.jsx';
+import Hero from '../components/Hero.tsx';
+import Services from '../components/Services.tsx';
+import ProcessTimeline from '../components/ProcessTimeline.tsx';
+import Testimonials from '../components/Testimonials.tsx';
+import Portfolio from '../components/Portfolio.tsx';
+import VideoDemos from '../components/VideoDemos.tsx';
+import BlogTeaser from '../components/BlogTeaser.tsx';
+import ContactForm from '../components/ContactForm.tsx';
+import SEO from '../components/SEO.tsx';
 
 const HomePage = () => {
     React.useEffect(() => {

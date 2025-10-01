@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PORTFOLIO_DATA } from '../constants.jsx';
-import { useScrollAnimation } from '../hooks/useScrollAnimation.js';
+import { PORTFOLIO_DATA } from '../constants.tsx';
+import { useScrollAnimation } from '../hooks/useScrollAnimation.ts';
 
 const Portfolio = ({ fullPage = false }) => {
     const [ref, isVisible] = useScrollAnimation({ threshold: 0.1 });

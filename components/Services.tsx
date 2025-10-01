@@ -1,6 +1,6 @@
 import React from 'react';
-import { SERVICES_DATA } from '../constants.jsx';
-import { useScrollAnimation } from '../hooks/useScrollAnimation.js';
+import { SERVICES_DATA } from '../constants.tsx';
+import { useScrollAnimation } from '../hooks/useScrollAnimation.ts';
 
 const Services = () => {
     const [ref, isVisible] = useScrollAnimation({ threshold: 0.2 });

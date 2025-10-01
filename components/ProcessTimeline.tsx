@@ -1,7 +1,7 @@
 import React from 'react';
 // FIX: Imported Variants type from framer-motion.
 import { motion, useInView, Variants } from 'framer-motion';
-import { PROCESS_DATA } from '../constants.jsx';
+import { PROCESS_DATA } from '../constants.tsx';
 
 const ProcessTimeline = () => {
     const ref = React.useRef(null);

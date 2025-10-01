@@ -1,23 +1,23 @@
 import React from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
-import Header from './components/Header.jsx';
-import Footer from './components/Footer.jsx';
-import HomePage from './pages/HomePage.jsx';
-import ServicesPage from './pages/ServicesPage.jsx';
-import PortfolioPage from './pages/PortfolioPage.jsx';
-import BlogPage from './pages/BlogPage.jsx';
-import ContactPage from './pages/ContactPage.jsx';
-import LoginPage from './pages/LoginPage.jsx';
-import RegistrationPage from './pages/RegistrationPage.jsx';
-import DashboardPage from './pages/DashboardPage.jsx';
-import AIChatWidget from './components/AIChatWidget.jsx';
-import { useCookieConsent } from './hooks/useCookieConsent.js';
-import CookieConsentBanner from './components/CookieConsentBanner.jsx';
-import { AuthProvider } from './contexts/AuthContext.jsx';
-import ProtectedRoute from './components/ProtectedRoute.jsx';
-import BlogDetailPage from './pages/BlogDetailPage.jsx';
-import { ThemeProvider } from './contexts/ThemeContext.jsx';
-import AboutUsPage from './pages/AboutUsPage.jsx';
+import Header from './components/Header.tsx';
+import Footer from './components/Footer.tsx';
+import HomePage from './pages/HomePage.tsx';
+import ServicesPage from './pages/ServicesPage.tsx';
+import PortfolioPage from './pages/PortfolioPage.tsx';
+import BlogPage from './pages/BlogPage.tsx';
+import ContactPage from './pages/ContactPage.tsx';
+import LoginPage from './pages/LoginPage.tsx';
+import RegistrationPage from './pages/RegistrationPage.tsx';
+import DashboardPage from './pages/DashboardPage.tsx';
+import AIChatWidget from './components/AIChatWidget.tsx';
+import { useCookieConsent } from './hooks/useCookieConsent.ts';
+import CookieConsentBanner from './components/CookieConsentBanner.tsx';
+import { AuthProvider } from './contexts/AuthContext.tsx';
+import ProtectedRoute from './components/ProtectedRoute.tsx';
+import BlogDetailPage from './pages/BlogDetailPage.tsx';
+import { ThemeProvider } from './contexts/ThemeContext.tsx';
+import AboutUsPage from './pages/AboutUsPage.tsx';
 
 
 const ScrollToTop = () => {

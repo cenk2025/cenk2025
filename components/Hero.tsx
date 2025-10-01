@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useScrollAnimation } from '../hooks/useScrollAnimation.js';
+import { useScrollAnimation } from '../hooks/useScrollAnimation.ts';
 
 const Hero = () => {
     const [ref, isVisible] = useScrollAnimation({ threshold: 0.3 });

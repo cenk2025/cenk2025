@@ -1,6 +1,6 @@
 import React from 'react';
-import Services from '../components/Services.jsx';
-import SEO from '../components/SEO.jsx';
+import Services from '../components/Services.tsx';
+import SEO from '../components/SEO.tsx';
 
 const ServicesPage = () => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
-import Portfolio from '../components/Portfolio.jsx';
-import SEO from '../components/SEO.jsx';
+import Portfolio from '../components/Portfolio.tsx';
+import SEO from '../components/SEO.tsx';
 
 const PortfolioPage = () => {
   return (

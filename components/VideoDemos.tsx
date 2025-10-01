@@ -1,5 +1,5 @@
 import React from 'react';
-import { useScrollAnimation } from '../hooks/useScrollAnimation.js';
+import { useScrollAnimation } from '../hooks/useScrollAnimation.ts';
 // FIX: Imported Variants type from framer-motion.
 import { motion, Variants } from 'framer-motion';
 

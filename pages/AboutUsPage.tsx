@@ -1,9 +1,9 @@
 import React from 'react';
-import SEO from '../components/SEO.jsx';
+import SEO from '../components/SEO.tsx';
 import { motion } from 'framer-motion';
-import { VALUES_DATA, TEAM_DATA } from '../constants.jsx';
-import TeamMemberCard from '../components/TeamMemberCard.jsx';
-import { useScrollAnimation } from '../hooks/useScrollAnimation.js';
+import { VALUES_DATA, TEAM_DATA } from '../constants.tsx';
+import TeamMemberCard from '../components/TeamMemberCard.tsx';
+import { useScrollAnimation } from '../hooks/useScrollAnimation.ts';
 
 const AboutUsPage = () => {
     const [valuesRef, valuesInView] = useScrollAnimation({ threshold: 0.2 });

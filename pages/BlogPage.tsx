@@ -1,6 +1,6 @@
 import React from 'react';
-import BlogTeaser from '../components/BlogTeaser.jsx';
-import SEO from '../components/SEO.jsx';
+import BlogTeaser from '../components/BlogTeaser.tsx';
+import SEO from '../components/SEO.tsx';
 
 const BlogPage = () => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext.jsx';
-import SEO from '../components/SEO.jsx';
+import { useAuth } from '../contexts/AuthContext.tsx';
+import SEO from '../components/SEO.tsx';
 import { motion } from 'framer-motion';
 
 const RegistrationPage = () => {

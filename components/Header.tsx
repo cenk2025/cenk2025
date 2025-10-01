@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { useTheme } from '../contexts/ThemeContext.jsx';
-import { useAuth } from '../contexts/AuthContext.jsx';
+import { useTheme } from '../contexts/ThemeContext.tsx';
+import { useAuth } from '../contexts/AuthContext.tsx';
 // FIX: Imported Variants type from framer-motion.
 import { motion, AnimatePresence, Variants } from 'framer-motion';
-import { SERVICES_DATA } from '../constants.jsx';
+import { SERVICES_DATA } from '../constants.tsx';
 
 const SunIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

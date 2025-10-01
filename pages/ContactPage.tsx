@@ -1,6 +1,6 @@
 import React from 'react';
-import ContactForm from '../components/ContactForm.jsx';
-import SEO from '../components/SEO.jsx';
+import ContactForm from '../components/ContactForm.tsx';
+import SEO from '../components/SEO.tsx';
 
 const ContactPage = () => {
   return (
